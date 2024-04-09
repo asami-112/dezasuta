@@ -1,0 +1,349 @@
+@charset "utf-8";
+
+/* 全体 */
+
+.container {
+    max-width: 1920px;
+    margin: 0 auto;
+    background-color: #e8d9bf;
+}
+img {
+    max-width: 100%;
+}
+.inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+.title {
+    width: 20%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+.title-img {
+    width: 100%;
+    height: 77px;
+}
+
+/* header */
+
+.header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 7.386%;
+    /* 幅147 / 全体1990 = 0.7386 */
+    padding-left:  2.512%;
+    position: absolute;
+    width: 100%;
+}
+.header__nav ul {
+    display: flex;
+    gap: 77px;
+}
+.header__nav ul li {
+    color: #fff;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック Medium",
+    "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+    font-weight: bold;
+}
+.logo {
+    width: 227px;
+}
+
+/* company-hope */
+
+.br-sp {
+    display: none;
+}
+.company-hope {
+    padding: 10%;
+    text-align: center;
+}
+.hope-top {
+    font-size: 1.875em;
+    margin-bottom: 20px;
+}
+.hope-title {
+    font-size: 5.125em;
+    line-height: 1.17;
+    margin-bottom: 15px;
+}
+.hope-bottom {
+    font-size: 1.43em;
+    line-height: 1.65;
+}
+
+/* ABOUT US */
+
+#aboutus {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin-bottom: 105px;
+}
+#aboutus .text {
+    width: 45%;
+    padding: 0 2% 0 2%;
+}
+.aboutus-content {
+    display: flex;
+    justify-content: center;
+}
+.content-img {
+    width: 500px;
+    object-fit: cover;
+    border-radius: 0 0 20%;
+    margin-right: 20px;
+}
+.aboutus-maintext {
+    font-size: 2.75em;
+    line-height: 1.17;
+    font-feature-settings: "palt";
+    margin-top: 55px;
+    margin-bottom: 36px;
+}
+.aboutus-subtext {
+    font-size: 1em;
+    line-height: 1.625;
+    font-feature-settings: "palt";
+    margin-bottom: 30px;
+}
+
+/* MENU */
+
+#menu ul {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 46px;
+    margin-bottom: 97px;
+}
+#menu li {
+    width: 32%;
+}
+.menu-img {
+    border-radius: 0 15% 0 0;
+    width: 300px;
+    height: 200px;
+}
+.menu-name {
+    font-size: 2.375em;
+    color: #d30202;
+    position: relative;
+    bottom: 20px;
+    padding: 0 10px;
+}
+.menu-text {
+    font-size: 1.06em;
+    line-height: 1.47;
+    font-feature-settings: "palt";
+}
+
+/* GALLERY */
+
+#gallery ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+    margin-bottom: 70px;
+}
+
+/* EVENT */
+
+#event dl {
+    font-size: 1,43em;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    border: solid 4px;
+    background-color: #fff;
+    padding: 37px 0;
+}
+#event dt {
+    width: 30%;
+    padding: 10px;
+    text-align: end;
+}
+#event dd {
+    width: 55%;
+    padding: 10px;
+    text-decoration:underline;
+}
+
+/* ACCESS */
+
+#access img {
+    width: 100%;
+    margin-top: 80px;
+}
+.map{
+    filter: grayscale(100%) invert(92%) contrast(83%);
+    margin-top: 45px;
+}
+
+/* FOOTER */
+
+#footer .inner {
+    display: flex;
+    justify-content: center;
+    margin: 83px;
+}
+#footer .logo {
+    padding: 10px;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin-left: 65px;
+}
+.info p {
+    font-size: 1.25em;
+    line-height: 1.95;
+    font-feature-settings: "palt";
+    display: block;
+}
+#footer .copyright {
+    text-align: center;
+    margin: 30px;
+    margin-bottom: 77px;
+}
+
+/* トップへ戻る */
+
+.totop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 125px;
+}
+
+/* スマホ版 */
+
+@media screen and (max-width:375px) {
+    .container {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .title {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    /* SP header */
+
+    .slider img{
+        width: 100%;
+        height: 650px;
+        object-fit: cover;
+    }
+    .br-sp {
+        display: block;
+    }
+
+    /* SP company-hope */
+
+    .company-hope {
+        padding: 2%;
+    }
+    .hope-top {
+        font-size: 1em;
+        margin: 20px 0;
+    }
+    .hope-title {
+        font-size: 2em;
+    }
+    .hope-bottom {
+        font-size: 1em;
+        line-height: 1.875;
+        margin-bottom: 69px;
+    }
+
+    /* SP about us */
+
+    .aboutus-content {
+        flex-direction: column;
+    }
+    #aboutus .title-img {
+        text-align: center;
+    }
+    #aboutus .text {
+        width: 100%;
+    }
+    .aboutus-maintext {
+        font-size: 2.25em;
+    }
+    .content-img {
+        border-radius: 0;
+        flex-direction: column;
+    }
+    .title-img {
+        flex-direction: column-reverse;
+    }
+    .img .title-img {
+        width: 100%;
+        height: 22px;
+    }
+
+    /* SP menu */
+
+    #menu {
+        display: block;
+    }
+    #menu ul {
+        flex-direction: column;
+    }
+    #menu li {
+        width: 100%;
+    }
+    .menu-img {
+        width: 100%;
+    }
+    .menu-text {
+        margin-bottom: 58px;
+    }
+
+    /* SP gallery */
+    
+    #gallery ul{
+        display: block;
+    }
+    #event dl {
+        width: 100%;
+        margin: 20px auto;
+    }
+    #event dt {
+        padding: 0 4%;
+    }
+    #event dd {
+        width: 80%;
+        margin: 0 9%;
+    }
+    #event dd:last-child{
+        margin-bottom: 0;
+    }
+
+    /* SP footer */
+
+    #footer .inner {
+    width: 100%;
+    display: block;
+    margin: 0;
+    }
+    #footer .logo {
+    padding: 10px 0;
+    }
+    .info {
+    font-size: 0.8em;
+    line-height: 1.72;
+    margin: 0;
+    }
+    .totop {
+    top: 890px;
+    bottom: 20px;
+    right: 260px;
+    width: 90px;
+    }
+}
