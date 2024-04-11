@@ -21,7 +21,7 @@ img {
     margin-bottom: 10px;
 }
 .title-img {
-    width: 100%;
+    width: auto;
     height: 77px;
 }
 
@@ -90,12 +90,16 @@ img {
 .aboutus-content {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .content-img {
-    width: 500px;
+    width: 100%;
     object-fit: cover;
     border-radius: 0 0 20%;
     margin-right: 20px;
+}
+.contentimg-adjust {
+    width: 50%;
 }
 .aboutus-maintext {
     font-size: 2.75em;
@@ -124,8 +128,6 @@ img {
 }
 .menu-img {
     border-radius: 0 15% 0 0;
-    width: 300px;
-    height: 200px;
 }
 .menu-name {
     font-size: 2.375em;
@@ -152,26 +154,22 @@ img {
 
 /* EVENT */
 
-#event dl {
-    font-size: 1,43em;
+#event ul {
+    font-size: 1.43em;
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
     border: solid 4px;
     background-color: #fff;
     padding: 37px 0;
 }
-#event dt {
-    width: 30%;
-    padding: 10px;
-    text-align: end;
+#event li {
+    padding: 1% 15%;
+    margin: 0 auto;
+    display: flex;
+    text-align: center;
 }
-#event dd {
-    width: 55%;
-    padding: 10px;
-    text-decoration:underline;
+#event .date {
+    padding-right: 20px;
 }
-
 /* ACCESS */
 
 #access img {
@@ -231,7 +229,11 @@ img {
         width: 50%;
         margin: 0 auto;
     }
-
+    .title-img {
+        width: auto;
+        height: 50%;
+    }
+    
     /* SP header */
 
     .slider img{
@@ -277,15 +279,21 @@ img {
     }
     .content-img {
         border-radius: 0;
-        flex-direction: column;
     }
-    .title-img {
+    
+    .contentimg-adjust {
+        width: 100%;
+    }
+    .title-about .contentimg-adjust {
+        display: flex;
+    }
+    .title-about{
         flex-direction: column-reverse;
     }
-    .img .title-img {
-        width: 100%;
-        height: 22px;
+    .contentimg-adjust {
+        flex-direction: column;
     }
+
 
     /* SP menu */
 
@@ -310,21 +318,19 @@ img {
     #gallery ul{
         display: block;
     }
-    #event dl {
+
+    /* SP event */
+
+    #event ul {
         width: 100%;
         margin: 20px auto;
+        padding: 10px;
     }
-    #event dt {
-        padding: 0 4%;
+    #event li {
+        display: block;
+        text-align: left;
+        padding: 20px;
     }
-    #event dd {
-        width: 80%;
-        margin: 0 9%;
-    }
-    #event dd:last-child{
-        margin-bottom: 0;
-    }
-
     /* SP footer */
 
     #footer .inner {
