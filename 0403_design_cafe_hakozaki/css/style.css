@@ -53,9 +53,6 @@ img {
 
 /* company-hope */
 
-.br-sp {
-    display: none;
-}
 .company-hope {
     padding: 10%;
     text-align: center;
@@ -85,18 +82,22 @@ img {
 }
 #aboutus .text {
     width: 45%;
-    padding: 0 2% 0 2%;
+    padding: 0 0 0 6%;
 }
 .aboutus-content {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.content-img {
+.content-img_pc {
     width: 100%;
+    display: block;
     object-fit: cover;
     border-radius: 0 0 20%;
     margin-right: 20px;
+}
+.content-img_sp {
+    display: none;
 }
 .contentimg-adjust {
     width: 50%;
@@ -162,7 +163,7 @@ img {
     padding: 37px 0;
 }
 #event li {
-    padding: 1% 15%;
+    padding: 1% 13%;
     margin: 0 auto;
     display: flex;
     text-align: center;
@@ -170,6 +171,9 @@ img {
 #event .date {
     padding-right: 20px;
 }
+.event-content a{
+    text-decoration: underline;
+    }
 /* ACCESS */
 
 #access img {
@@ -220,78 +224,48 @@ img {
 
 /* スマホ版 */
 
-@media screen and (max-width:375px) {
+@media screen and (max-width:767px) {
     .container {
         width: 100%;
         margin: 0 auto;
     }
     .title {
-        width: 50%;
+        /* width: 50%; */
         margin: 0 auto;
     }
-    .title-img {
-        width: auto;
-        height: 50%;
-    }
     
-    /* SP header */
-
-    .slider img{
-        width: 100%;
-        height: 650px;
-        object-fit: cover;
-    }
-    .br-sp {
-        display: block;
-    }
 
     /* SP company-hope */
 
     .company-hope {
         padding: 2%;
     }
-    .hope-top {
-        font-size: 1em;
-        margin: 20px 0;
-    }
-    .hope-title {
-        font-size: 2em;
-    }
-    .hope-bottom {
-        font-size: 1em;
-        line-height: 1.875;
-        margin-bottom: 69px;
-    }
 
     /* SP about us */
 
     .aboutus-content {
-        flex-direction: column;
-    }
-    #aboutus .title-img {
-        text-align: center;
+        flex-direction: column;  /* 縦並び */
     }
     #aboutus .text {
+        width: 100%;            /* 幅いっぱい */
+        padding: 0;             /* PC版の幅を消す */
+    }
+    .content-img_pc {
+        display: none;          /* PC版の画像表示しない */
+    }
+    .content-img_sp {
+        width: 100%;
+        display: block;         /* SP版画像を表示する */
+    }
+    .contentimg-adjust {        /* coffee画像を幅いっぱい */
         width: 100%;
     }
-    .aboutus-maintext {
-        font-size: 2.25em;
-    }
-    .content-img {
-        border-radius: 0;
-    }
-    
-    .contentimg-adjust {
-        width: 100%;
-    }
-    .title-about .contentimg-adjust {
-        display: flex;
-    }
-    .title-about{
-        flex-direction: column-reverse;
+    .title-img {
+        width: auto;
+        flex-direction: column-reverse;   /* aboutusのタイトル画像を上にしたい*/
     }
     .contentimg-adjust {
-        flex-direction: column;
+        flex-direction: column;           /* コーヒー画像を下にしたい*/
     }
 
 
@@ -315,9 +289,7 @@ img {
 
     /* SP gallery */
     
-    #gallery ul{
-        display: block;
-    }
+
 
     /* SP event */
 
@@ -347,9 +319,109 @@ img {
     margin: 0;
     }
     .totop {
-    top: 890px;
-    bottom: 20px;
-    right: 260px;
-    width: 90px;
+    top: 600px;
+    width: 100px;
+    }
+}
+
+.header__nav-sp {
+    display: none;
+}
+.hamburger {
+    display: none;
+}
+
+/* ハンバーガーメニュー */
+@media screen and (max-width:1000px) {
+    .header__nav {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+        z-index: 9999;
+    }
+    .hamburger span {
+        width: 30px;
+        height: 2px;
+        background-color: #fff;
+        position: absolute;
+        top: 15px;
+        transition: .3s;
+    }
+    /* 擬似要素 (::before,::after) */
+    .hamburger span::before {
+        /* 45度回転させる */
+        width: 30px;
+        height: 2px;
+        background-color: #fff;
+        position: absolute;
+        content: "";
+        top: -12px;
+        transition: .3s;
+    }
+    .hamburger span::after {
+        width: 30px;
+        height: 2px;
+        background-color: #fff;
+        position: absolute;
+        content: "";
+        bottom: -12px;
+    }
+
+    .open span {
+        background-color: transparent;
+    }
+    .open span::before {
+        transform:  rotate(45deg);
+        top: 0;
+    }
+    .open span::after {
+        transform: rotate(-45deg);
+        bottom: 0;
+    }
+    .header__nav-sp {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background-color: #000000b3;
+    }
+    .header__nav-sp ul {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    .header__nav-sp li {
+        color: #fff;
+        font-family:"游ゴシック体", YuGothic, "游ゴシック Medium",
+        "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+        font-weight: bold;
+    }
+}
+
+/* フォント調整 */
+@media screen and (max-width:1000px) {
+    .hope-top {
+        font-size: 1em;
+        margin: 20px 0;
+    }
+    .hope-title {
+        font-size: 2em;
+    }
+    .hope-bottom {
+        font-size: 1em;
+        line-height: 1.875;
+        margin-bottom: 69px;
+    }
+    .aboutus-maintext {
+        font-size: 2.25em;
     }
 }

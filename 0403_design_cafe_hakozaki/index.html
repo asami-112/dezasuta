@@ -7,6 +7,8 @@
 
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
     <header id="header">
@@ -26,10 +28,25 @@
                 </ul>
             </nav>
         </div>
+        <div class="hamburger">
+            <span></span>
+        </div>
+        <nav class="header__nav-sp">
+            <ul>
+                <li><a href="#aboutus">ABOUT US</a></li>
+                <li><a href="#menu">MENU</a></li>
+                <li><a href="#gallery">GALLERY</a></li>
+                <li><a href="#event">EVENT</a></li>
+                <li><a href="#access">ACCESS</a></li>
+            </ul>
+        </nav>
     </header>
 
     <div class="slider">
-        <img src="./images/pc_first-100.jpg" alt="カフェ店内の様子">
+        <picture>
+            <source srcset="./images/sp_main_vs@2x-100.jpg" media="(max-width : 767px)">
+            <img src="./images/pc_first-100.jpg" alt="カフェ店内の様子">
+        </picture>
     </div>
 
     <main>
@@ -48,10 +65,11 @@
                 <div class="inner">
                     <div class="aboutus-content">
                         <div class="contentimg-adjust">
-                            <img class="content-img" src="./images/pc_about-100.jpg" alt="coffee">
+                            <img class="content-img_pc" src="./images/pc_about-100.jpg" alt="PC版coffee画像">
+                            <img class="content-img_sp" src="./images/about_us@2x-100.jpg" alt="SP版coffee画像">
                         </div>
                         <div class="text">
-                            <h2 class="title-about">
+                            <h2 class="title">
                                 <img class="title-img" src="./images/about_us@2x.png" alt="aboutus">
                             </h2>
                             <p class="aboutus-maintext">
@@ -68,7 +86,7 @@
                 <div class="inner">
                     <div class="menu-content">
                         <h2 class="title">
-                            <img class="title-img" src="./images/menu@2x.png" alt="menu">
+                            <img src="./images/menu@2x.png" alt="menu">
                         </h2>
                         <ul>
                             <li>
@@ -94,7 +112,7 @@
             <section id="gallery">
                 <div class="gallery-content">
                     <h2 class="title">
-                        <img class="title-img" src="./images/gallery@2x.png" alt="gallery">
+                        <img src="./images/gallery@2x.png" alt="gallery">
                     </h2>
                         <ul>
                             <li>
@@ -120,7 +138,7 @@
                 <div class="inner">
                     <div class="event-content">
                         <h2 class="title">
-                            <img class="title-img" src="./images/event@2x.png" alt="event">
+                            <img src="./images/event@2x.png" alt="event">
                         </h2>
                         <ul>
                             <li>
@@ -142,7 +160,7 @@
 
             <section id="access">
                 <h2 class="title">
-                    <img class="title-img" src="./images/access@2x.png" alt="access">
+                    <img src="./images/access@2x.png" alt="access">
                 </h2>
                 <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d751.7826571985114!2d139.69924180615374!3d35.66141249853623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ca8684fe433%3A0xec492feae36d46ea!2z44OH44Kj44K644OL44O844K544OI44KiIOa4i-iwt-WFrOWckumAmuOCiuW6lw!5e0!3m2!1sja!2sjp!4v1712367442547!5m2!1sja!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </section>
@@ -168,5 +186,14 @@
             </a>
         </p>
     </footer>
+    <script>
+        // ハンバーガーメニュー
+        $(function(){
+            $(".hamburger").on("click", function(){
+                $(".hamburger").toggleClass("open");
+                $(".header__nav-sp").fadeToggle();
+            });
+        });
+    </script>
 </body>
 </html>
