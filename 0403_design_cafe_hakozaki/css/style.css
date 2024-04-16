@@ -1,7 +1,6 @@
 @charset "utf-8";
 
 /* 全体 */
-
 .container {
     max-width: 1920px;
     margin: 0 auto;
@@ -18,7 +17,7 @@ img {
 .title {
     width: 20%;
     margin: 0 auto;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 .title-img {
     width: auto;
@@ -58,16 +57,16 @@ img {
     text-align: center;
 }
 .hope-top {
-    font-size: 1.875em;
+    font-size: 30px;
     margin-bottom: 20px;
 }
 .hope-title {
-    font-size: 5.125em;
+    font-size: 82px;
     line-height: 1.17;
     margin-bottom: 15px;
 }
 .hope-bottom {
-    font-size: 1.43em;
+    font-size: 23px;
     line-height: 1.65;
 }
 
@@ -103,17 +102,20 @@ img {
     width: 50%;
 }
 .aboutus-maintext {
-    font-size: 2.75em;
+    font-size: 43px;
     line-height: 1.17;
     font-feature-settings: "palt";
     margin-top: 55px;
     margin-bottom: 36px;
 }
 .aboutus-subtext {
-    font-size: 1em;
+    font-size: 16px;
     line-height: 1.625;
     font-feature-settings: "palt";
     margin-bottom: 30px;
+}
+.title-img_sp {
+    display: none;
 }
 
 /* MENU */
@@ -131,14 +133,14 @@ img {
     border-radius: 0 15% 0 0;
 }
 .menu-name {
-    font-size: 2.375em;
+    font-size: 38px;
     color: #d30202;
     position: relative;
     bottom: 20px;
     padding: 0 10px;
 }
 .menu-text {
-    font-size: 1.06em;
+    font-size: 17px;
     line-height: 1.47;
     font-feature-settings: "palt";
 }
@@ -156,7 +158,7 @@ img {
 /* EVENT */
 
 #event ul {
-    font-size: 1.43em;
+    font-size: 23px;
     width: 100%;
     border: solid 4px;
     background-color: #fff;
@@ -174,6 +176,7 @@ img {
 .event-content a{
     text-decoration: underline;
     }
+
 /* ACCESS */
 
 #access img {
@@ -182,7 +185,7 @@ img {
 }
 .map{
     filter: grayscale(100%) invert(92%) contrast(83%);
-    margin-top: 45px;
+    margin-top: 20px;
 }
 
 /* FOOTER */
@@ -202,7 +205,7 @@ img {
     margin-left: 65px;
 }
 .info p {
-    font-size: 1.25em;
+    font-size: 20px;
     line-height: 1.95;
     font-feature-settings: "palt";
     display: block;
@@ -230,10 +233,8 @@ img {
         margin: 0 auto;
     }
     .title {
-        /* width: 50%; */
         margin: 0 auto;
     }
-    
 
     /* SP company-hope */
 
@@ -243,31 +244,30 @@ img {
 
     /* SP about us */
 
+    .title-img_pc {
+        display: none;           /*PC版のタイトルを消す*/
+    }
+    .title-img_sp{
+        display: block;          /*SP版のタイトルを表示*/
+        margin-bottom: 20px;
+    }
     .aboutus-content {
         flex-direction: column;  /* 縦並び */
     }
     #aboutus .text {
-        width: 100%;            /* 幅いっぱい */
-        padding: 0;             /* PC版の幅を消す */
+        width: 100%;             /* 幅いっぱい */
+        padding: 0;              /* PC版の幅を消す */
     }
     .content-img_pc {
-        display: none;          /* PC版の画像表示しない */
+        display: none;           /* PC版の画像表示しない */
     }
     .content-img_sp {
         width: 100%;
-        display: block;         /* SP版画像を表示する */
+        display: block;          /* SP版画像を表示する */
     }
-    .contentimg-adjust {        /* coffee画像を幅いっぱい */
+    .contentimg-adjust {         /* coffee画像を幅いっぱい */
         width: 100%;
     }
-    .title-img {
-        width: auto;
-        flex-direction: column-reverse;   /* aboutusのタイトル画像を上にしたい*/
-    }
-    .contentimg-adjust {
-        flex-direction: column;           /* コーヒー画像を下にしたい*/
-    }
-
 
     /* SP menu */
 
@@ -287,10 +287,6 @@ img {
         margin-bottom: 58px;
     }
 
-    /* SP gallery */
-    
-
-
     /* SP event */
 
     #event ul {
@@ -303,6 +299,7 @@ img {
         text-align: left;
         padding: 20px;
     }
+
     /* SP footer */
 
     #footer .inner {
@@ -314,7 +311,7 @@ img {
     padding: 10px 0;
     }
     .info {
-    font-size: 0.8em;
+    font-size: 13px;
     line-height: 1.72;
     margin: 0;
     }
@@ -323,7 +320,6 @@ img {
     width: 100px;
     }
 }
-
 .header__nav-sp {
     display: none;
 }
@@ -373,7 +369,6 @@ img {
         content: "";
         bottom: -12px;
     }
-
     .open span {
         background-color: transparent;
     }
@@ -408,20 +403,20 @@ img {
 }
 
 /* フォント調整 */
-@media screen and (max-width:1000px) {
+@media screen and (max-width:1100px) {
     .hope-top {
-        font-size: 1em;
+        font-size: 20px;
         margin: 20px 0;
     }
     .hope-title {
-        font-size: 2em;
+        font-size: 60px;
     }
     .hope-bottom {
-        font-size: 1em;
+        font-size: 16px;
         line-height: 1.875;
         margin-bottom: 69px;
     }
     .aboutus-maintext {
-        font-size: 2.25em;
+        font-size: 36px;
     }
 }
