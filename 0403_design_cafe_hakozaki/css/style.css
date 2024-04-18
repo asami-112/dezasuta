@@ -75,17 +75,15 @@ img {
 #aboutus {
     display: flex;
     align-items: center;
-    padding: 0 20px;
     box-sizing: border-box;
     margin-bottom: 105px;
 }
 #aboutus .text {
     width: 45%;
-    padding: 0 0 0 6%;
 }
 .aboutus-content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 .content-img_pc {
@@ -256,7 +254,7 @@ img {
     }
     #aboutus .text {
         width: 100%;             /* 幅いっぱい */
-        padding: 0;              /* PC版の幅を消す */
+        padding: 0 4%;              /* PC版の幅を消す */
     }
     .content-img_pc {
         display: none;           /* PC版の画像表示しない */
@@ -267,6 +265,12 @@ img {
     }
     .contentimg-adjust {         /* coffee画像を幅いっぱい */
         width: 100%;
+    }
+    #aboutus {
+        padding: 0;
+    }
+    #aboutus .inner {
+        padding: 0;
     }
 
     /* SP menu */
@@ -298,6 +302,12 @@ img {
         display: block;
         text-align: left;
         padding: 20px;
+        font-size: 16px;
+    }
+    .event-content li p {
+        white-space: nowrap;        /* 改行しない */
+        overflow: hidden;           /* ↑に対してのはみ出し防止 */
+        text-overflow: ellipsis;    /* ３点リーダー[・・・]の表示 */
     }
 
     /* SP footer */
