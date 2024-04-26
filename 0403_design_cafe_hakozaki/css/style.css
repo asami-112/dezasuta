@@ -35,6 +35,7 @@ img {
     padding-left:  2.512%;
     position: absolute;
     width: 100%;
+    z-index: 2;     /* 前面に出す */
 }
 .header__nav ul {
     display: flex;
@@ -48,6 +49,9 @@ img {
 }
 .logo {
     width: 227px;
+}
+.header__nav-sp {
+    z-index: none;
 }
 
 /* company-hope */
@@ -240,6 +244,11 @@ img {
         padding: 2%;
     }
 
+    /* SP header */
+
+    .header__nav-sp {
+        z-index: 9998;
+    }
     /* SP about us */
 
     .title-img_pc {
@@ -331,80 +340,84 @@ img {
     }
 }
 .header__nav-sp {
-    display: none;
+    display: none;        /* pc版の時はsp版のnuvは消す JQueryで動きをつけていく*/
 }
 .hamburger {
-    display: none;
+    display: none;       /* pc版の時はハンバーガーメニューを消す*/
 }
 
 /* ハンバーガーメニュー */
 @media screen and (max-width:1000px) {
     .header__nav {
-        display: none;
+        display: none;        /* pc版のnavを消す */
     }
+    /* ハンバーガーの枠組み */
     .hamburger {
-        display: block;
-        width: 30px;
-        height: 30px;
-        position: absolute;
-        right: 10px;
+        display: block;       /* ハンバーガーメニューを表示する */
+        width: 30px;          /* 3本線の枠 */
+        height: 30px;         /* 3本線の枠 */
+        position: absolute;   /* 浮かせる */
+        right: 10px;          /* 左にいたものを右に移動 */
         top: 10px;
         cursor: pointer;
-        z-index: 9999;
+        z-index: 9999;        /* 要素の重なり順を調整 最前面にハンバーガーメニューを出す ※ position系が付いてる時にしか適用しない [最前面→9999][最背面→ -1] */
     }
+    /* ハンバーガーの3本線 */
     .hamburger span {
-        width: 30px;
+        width: 30px;         /* widthとheightですごい細長い長方形を作って線に見立ててる状態 */
         height: 2px;
         background-color: #fff;
-        position: absolute;
-        top: 15px;
-        transition: .3s;
+        position: absolute;     /* ハンバーガーの枠組みの上に浮かせる */
+        top: 15px;              /* 枠組みが30pxなので真ん中に線をつけたいから半分の15px */
+        transition: .3s;        /* 0.3秒かけてxの状態に動く */
     }
-    /* 擬似要素 (::before,::after) */
-    .hamburger span::before {
+    /* 擬似要素 (::before,::after) HTMLではないけどCSSで擬似的に要素を作る。装飾系で使用。２個まで */
+    .hamburger span::before {    /* 上の線  装飾が前に来るのは[before] */
         /* 45度回転させる */
         width: 30px;
         height: 2px;
         background-color: #fff;
         position: absolute;
-        content: "";
-        top: -12px;
-        transition: .3s;
+        content: "";          /* 本来ない要素を擬似要素で作ってるからcontent:"";を入れて要素と認識させる before,afterが入る時はcontentはセット */
+        top: -12px;           /* 真ん中の線から12px分上に上げる */
+        transition: .3s;      /* 0.3秒かけてxの状態に動く */
     }
-    .hamburger span::after {
+    .hamburger span::after {    /* 下の線 装飾が後ろに来るのは[after]*/
         width: 30px;
         height: 2px;
         background-color: #fff;
         position: absolute;
         content: "";
-        bottom: -12px;
+        bottom: -12px;              /* 真ん中の線から12px分下に下げる */
+        transition: .3s;           /* 0.3秒かけてxの状態に動く */
     }
+    /* ハンバーガーメニューが開いた時 */
     .open span {
-        background-color: transparent;
+        background-color: transparent;  /* JQueryのToggleclassでつけたopenに対してtransparentで透明にする。このspanは基本の真ん中の線 */
     }
     .open span::before {
-        transform:  rotate(45deg);
-        top: 0;
+        transform:  rotate(45deg);    /* rotate→回転 deg→度数 45度、線を回転させる */
+        top: 0;                       /* 3本線でつけた位置を0にする 交点を作る */
     }
     .open span::after {
-        transform: rotate(-45deg);
-        bottom: 0;
+        transform: rotate(-45deg);    /* -45度、線を回転させる */
+        bottom: 0;                    /* 3本線でつけた位置を0にする 交点を作る */
     }
     .header__nav-sp {
         position: absolute;
-        width: 100%;
-        height: 100vh;
-        background-color: #000000b3;
+        width: 100%;                  /* 黒い覆いを幅いっぱいに表示 */
+        height: 100vh;                /*「vew hight」どんな画面サイズであっても画面いっぱいに表示 */
+        background-color: #000000b3;     /* 半透明入りの黒のカラーコード */
     }
     .header__nav-sp ul {
-        height: 100%;
+        height: 100%;                /* 画面いっぱいに表示*/
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
+        flex-direction: column;      /* 縦並び */
+        align-items: center;         /* 真ん中配置 */
+        justify-content: center;     /* 画面中央配置 */
+        gap: 10px;                   /* 文字間調整 */
     }
-    .header__nav-sp li {
+    .header__nav-sp li {      /* 文字の調整 */
         color: #fff;
         font-family:"游ゴシック体", YuGothic, "游ゴシック Medium",
         "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
@@ -429,4 +442,20 @@ img {
     .aboutus-maintext {
         font-size: 36px;
     }
+}
+/* スライダー部分の調整 デベロッパーツールから余分なところを調整していく */
+.slick-dots {
+    bottom: 0;      /* 下に出ていたのを消す*/
+}
+.slick-dots li button:before {
+    color: #fff;    /* 標準で入ってた黒色を白に変更 */
+}
+.slick-dots li.slick-active button:before {
+    color: #fff;   /* 標準で入ってた黒色を白に変更 */
+}
+.slick-dotted.slick-slider {
+    margin-bottom: 0;   /* 謎のmargin-bottomの削除 */
+}
+.lb-caption {
+    color: #fff;
 }

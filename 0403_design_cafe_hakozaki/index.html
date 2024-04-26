@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>デザインカフェ</title>
-
+<!-- reset cssの読み込み ※reset.cssは一番上 -->
     <link rel="stylesheet" href="./css/reset.css">
+<!-- slickのcssの読み込み ※必ずreset,cssとstyle.cssの間 -->    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+<!-- lightboxの読み込み -->
+    <link rel="stylesheet" href="./css/lightbox.css">
+<!-- style.cssの読み込み -->     
     <link rel="stylesheet" href="./css/style.css">
-
+<!-- JQueryの読み込み -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-</head>
+<!-- slickの読み込み ※必ずJQueryの下 -->
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<!-- lightboxの読み込み -->
+    <script src="./js/lightbox.js"></script>
+
 <body>
     <header id="header">
         <div class="header__inner">
@@ -28,7 +38,8 @@
                 </ul>
             </nav>
         </div>
-        <div class="hamburger">
+        <!-- SP用 -->
+        <div class="hamburger">   <!--3本線を囲うdivを作る-->
             <span></span>
         </div>
         <nav class="header__nav-sp">
@@ -41,11 +52,15 @@
             </ul>
         </nav>
     </header>
-
+    <!-- スライダー -->
     <div class="slider">
         <picture>
             <source srcset="./images/sp_main_vs@2x-100.jpg" media="(max-width : 767px)">
             <img src="./images/pc_first-100.jpg" alt="カフェ店内の様子">
+        </picture>
+        <picture>
+            <source srcset="./images/sp_main_vs_2@2x-100.jpg" media="(max-width : 767px)">
+            <img src="./images/slider_2.jpg" alt="カフェ店内の様子">
         </picture>
     </div>
 
@@ -117,21 +132,36 @@
                     <h2 class="title">
                         <img src="./images/gallery@2x.png" alt="gallery">
                     </h2>
-                        <ul>
+                        <ul class="gallerypicture">
                             <li>
-                                <img src="./images/pc_gallary_05-100.jpg" alt="gallery1">
+                                <a href="./images/pc_gallary_05-100.jpg" data-lightbox="lbox" data-title="店内">
+                                    <img src="./images/pc_gallary_05-100.jpg" alt="gallery1">
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/pc_gallary_04-100.jpg" alt="gallery2">
+                                <a href="./images/pc_gallary_04-100.jpg" data-lightbox="lbox" data-title="beans">
+                                    <img src="./images/pc_gallary_04-100.jpg" alt="gallery2">
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/pc_gallary_03-100.jpg" alt="gallery3">
+                                <a href="./images/pc_gallary_03-100.jpg" data-lightbox="lbox" data-title="店内２">
+                                    <img src="./images/pc_gallary_03-100.jpg" alt="gallery3">
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/pc_gallary_02-100.jpg" alt="gallery4">
+                                <a href="./images/pc_gallary_02-100.jpg" data-lightbox="lbox" data-title="看板">
+                                    <img src="./images/pc_gallary_02-100.jpg" alt="gallery4">
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/pc_gallary_01-100.jpg" alt="gallery5">
+                                <a href="./images/pc_gallary_01-100.jpg" data-lightbox="lbox" data-title="ラテアート">
+                                    <img src="./images/pc_gallary_01-100.jpg" alt="gallery5">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./images/pc_gallary_03-100.jpg" data-lightbox="lbox" data-title="店内３">
+                                    <img src="./images/pc_gallary_03-100.jpg" alt="gallery3">
+                                </a>
                             </li>
                         </ul>
                 </div>
@@ -192,10 +222,36 @@
     <script>
         // ハンバーガーメニュー
         $(function(){
-            $(".hamburger").on("click", function(){
-                $(".hamburger").toggleClass("open");
-                $(".header__nav-sp").fadeToggle();
+            $(".hamburger").on("click", function(){   //ハンバーガーをクリックしたら、
+                $(".hamburger").toggleClass("open");  //ハンバーガーメニューが開く
+                $(".header__nav-sp").fadeToggle();    //sp版のnavを表示させる。
             });
+            // slick
+            $(".slider").slick({              //slickを起動する記述 ※JQueryの中で書く
+                autoplay: true,               //自動で動く [,]はこの後続きがある時に入れる
+                autoplaySpeed: 3000,          //スピード 3秒
+                arrows: false,                //端の矢印「arrows」をなくす「false」
+                dots: true                    //切り替わるドットの印を表示 ※終わりは[,]なしにする
+            });
+            // gallery
+            $(".gallerypicture").slick({
+                slidesToShow: 5,             //スライドを５枚表示
+                slidesToScroll: 1,           //スクロールされるスライド数
+                autoplay: true,              //自動
+                autoplaySpeed: 3000,         //3秒
+                arrows: false,               //矢印なし
+                dots: false,                 //点なし
+                responsive: [                //レスポンシブ設定
+                    {
+                        breakpoint: 767,     //767px以下
+                        settings: {
+                            slidesToShow: 1, //スライドを１枚表示
+
+                        },
+                    },
+                ],
+            });
+            $(".lb-number").removeAttr("class");
         });
     </script>
 </body>
