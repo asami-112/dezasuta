@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg" width="130" height="80" viewBox="0 0 130 80">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <g id="main">
+    <g id="coding_icon">
+      <path class="cls-1" d="M116.69,0H13.31C5.97,0,0,6.01,0,13.38v49.24c0,9.58,7.75,17.38,17.28,17.38h95.43c9.53,0,17.28-7.8,17.28-17.38V13.38c0-7.38-5.97-13.38-13.31-13.38ZM123.28,62.62c0,5.85-4.74,10.62-10.56,10.62H17.28c-5.82,0-10.56-4.76-10.56-10.62V13.38c0-3.65,2.95-6.62,6.59-6.62h103.38c3.63,0,6.59,2.97,6.59,6.62v49.24h0Z"/>
+      <rect class="cls-1" x="48.19" y="34.37" width="11.21" height="11.27"/>
+      <rect class="cls-1" x="65" y="34.37" width="11.21" height="11.27"/>
+      <rect class="cls-1" x="81.81" y="34.37" width="11.21" height="11.27"/>
+      <rect class="cls-1" x="104.22" y="51.27" width="11.21" height="11.27"/>
+      <rect class="cls-1" x="48.19" y="17.47" width="11.21" height="11.27"/>
+      <rect class="cls-1" x="31.38" y="34.37" width="11.21" height="11.27"/>
+      <rect class="cls-1" x="31.38" y="17.47" width="11.21" height="11.27"/>
+      <rect class="cls-1" x="14.57" y="51.27" width="11.21" height="11.27"/>
+      <rect class="cls-1" x="14.57" y="34.37" width="11.21" height="11.27"/>
+      <rect class="cls-1" x="14.57" y="17.47" width="11.21" height="11.27"/>
+      <rect class="cls-1" x="65" y="17.47" width="11.21" height="11.27"/>
+      <rect class="cls-1" x="81.81" y="17.47" width="11.21" height="11.27"/>
+      <rect class="cls-1" x="31.38" y="51.27" width="67.24" height="11.27"/>
+      <rect class="cls-1" x="98.62" y="17.47" width="16.81" height="28.17"/>
+    </g>
+  </g>
+</svg>

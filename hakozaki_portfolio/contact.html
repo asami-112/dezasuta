@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hakozaki_asami_portfolio</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/bgz0pla.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        @import url("https://use.typekit.net/bgz0pla.css");
+    </style>
+
+</head>
+<body>
+    <header id="header">
+        <nav class="header__nav">
+            <ul>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./index.html">Skills</a></li>
+                <li><a href="./index.html"><img img class="logo__img" src="./img/img/pc_logo@2x.png" alt="ロゴ"></a></li>
+                <li><a href="./works1.html">Works</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2 class="article__title">Contact</h2>
+        <form class="c-form" 
+            action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfGbIF-cKvkWM076JoMFVUjliGO2BYGvAOoYCaDFz_TkrLVtg/formResponse?pli=1"
+            method="POST"
+            target="hidden_iframe"
+            onsubmit="submitted=true;">
+            <div class="c-form__item">
+                <label class="c-form__label" for="field-companyname"><span class="c-form__any">任意</span>貴社名</label>
+                <input
+                    name="entry.1650007719"
+                    class="c-form__input"
+                    id="field-companyname"
+                    placeholder=""
+                    type="text"
+                    required="required"
+                />
+            </div>
+            <div class="c-form__item">
+                <label class="c-form__label" for="field-name"><span class="c-form__required">必須</span>お名前</label>
+                <input
+                    name="entry.185743331"
+                    class="c-form__input"
+                    id="field-name"
+                    placeholder=""
+                    type="text"
+                    required="required"
+                />
+            </div>
+            <div class="c-form__item">
+                <label class="c-form__label" for="field-mail"><span class="c-form__required">必須</span>メールアドレス</label>
+                <input
+                    name="entry.1620349427"
+                    class="c-form__input"
+                    id="field-mail"
+                    placeholder="sample@gmail.com"
+                    type="email"
+                    required="required"
+                />
+            </div>
+            <div class="c-form__item">
+                <label class="c-form__label" for="field-number"><span class="c-form__any">任意</span>電話番号</label>
+                <input
+                    name="entry.512004222"
+                    class="c-form__input"
+                    id="field-number"
+                    placeholder=""
+                    type="text"
+                    required="required"
+                />
+            </div>
+            <div class="c-form__item">
+                <label class="c-form__label" for="field-message"><span class="c-form__required">必須</span>お問い合わせ内容</label>
+                <textarea
+                    name="entry.1616931285"
+                    class="c-form__input"
+                    id="field-message"
+                    placeholder=""
+                ></textarea>
+            </div>
+            <div class="c-form__submit">
+                <button type="submit">送信する</button>
+            </div>
+        </form>
+    </main>
+    <footer id="footer">
+            <p>©hakozaki_asami</p>
+    </footer>
+
+    <script type="text/javascript">
+        let submitted = false;
+    </script>
+    <iframe
+        name="hidden_iframe"
+        id="hidden_iframe"
+        style="display: none"
+        onload="if(submitted){window.location='file:///Users/sugayaasami/Desktop/hakozaki_portfolio/thanks.html';}"
+    ></iframe>
+</body>
+</html>

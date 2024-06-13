@@ -1,0 +1,631 @@
+@charset "utf-8";
+body {
+	max-width: 1366px;
+	margin: 0 auto;
+    color: #1b1464;
+}
+.container {
+    margin: 0 auto;
+}
+h2 {
+    text-align: center;
+    font-size: 48px;
+    color: #e9839f;
+	margin-top: 300px;
+}
+h3 {
+	margin: 0 auto;
+	font-size: 32px;
+	text-align: center;
+}
+img {
+    max-width: 100%;
+}
+.logo__img{
+	display: block;
+	margin: auto;
+	width: 165px;
+	text-align: center;
+}
+.more__btn {
+	position: relative;
+    /*ボタンの形状*/
+	text-decoration: none;
+	display: inline-block;
+	background: #e9839f;
+	border: solid 1px #e9839f;
+	color:#fff;
+    padding: 20px 70px 20px 70px;
+	border-radius:50px;
+    text-align: center;
+    outline: none;
+	margin-top: 100px;
+    /*アニメーションの指定*/
+    transition: ease .2s;
+}
+.more__btn:hover {
+	background: #e9839eca;
+}
+/* 矢印が右に移動して現在地に戻る */
+
+.more__btn::after{
+    content: '';
+    /*絶対配置で矢印の位置を決める*/
+	position: absolute;
+    top:43%;
+    right: 13px;
+    /*矢印の形状*/
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(45deg);
+}
+
+/*hoverした際のアニメーション*/
+.more__btn::after{
+    animation: arrow .5s;
+}
+
+@keyframes arrow {
+    50% {
+    right: 10px;
+    }
+    100% {
+    right: 13px;
+    }
+}
+
+.article__title {
+	text-align: left;
+    margin-left: 170px;
+}
+.bottom__link {
+	margin-top: 300px;
+}
+.bottom__link-prev {
+	display: flex;
+	align-items: center;
+	width: 700px;
+	margin: 0 auto;
+}
+.bottom__link-next {
+	display: flex;
+	align-items: center;
+	margin: 0 auto;
+}
+.bottom__link-prev p {
+	margin: 20px;
+}
+.bottom__link-next p {
+	margin: 20px;
+}
+.bottom__link {
+	display: flex;
+}
+.bottom__link-prev-start {
+	display: flex;
+	align-items: center;
+	margin: 0 auto;
+	color: #c7c7c7;
+}
+.bottom__link-prev-start p {
+	margin: 20px;
+}
+.bottom__link-next-end {
+	display: flex;
+	align-items: center;
+	margin: 0 auto;
+	color: #c7c7c7;
+}
+.bottom__link-next-end p {
+	margin: 20px;
+}
+.toTop {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 100px;
+}
+
+/* 背景グラデーション */
+body {
+	width: 100%;
+	height: 100%;
+    margin: 0;
+	background:linear-gradient(45deg, #accbee,#e7f0fd,#f7e6eb,#e4edfd);/*グラデーションを定義*/
+	background-size: 1000% 1000%;/*サイズを大きくひきのばす*/
+	animation: bggradient 20s ease infinite;
+}
+
+@keyframes bggradient{
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+/* 背景ウェーブ */
+.wave{
+    position:relative;
+    height:200px;/*何も表示されない場合は各波の親要素に高さを持たせましょう。*/
+    transform: rotate( 20deg );
+    }
+    canvas{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    width: 100%;
+    }
+
+/* ヘッダー */
+.header__nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: rgba(255, 255, 255, 0.888);
+    padding: 25px 0;
+    margin: 0 auto;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	font-size: 20px;
+	z-index: 2;
+}
+.header__inner {
+    /* padding-right: 0.2%;
+    /* 幅147 / 全体1990 = 0.7386 */
+    /* padding-left:  0.2%; */ 
+    position: absolute;
+    width: 100%;
+}
+
+/* ファーストビュー */
+.fv__text-left {
+    position: relative;
+    right: 7%;
+    font-size: 130px;
+    opacity: 0.1;
+	font-family: "ht-neon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.fv__text-right {
+    position: relative;
+    text-align: right;
+    font-size: 130px;
+    opacity: 0.1;
+	font-family: "ht-neon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+h1 {
+    text-align: center;
+}
+
+/* About */
+#About {
+    text-align: center;
+	position: relative;
+}
+#About p {
+	gap: 20px;
+}
+.about__img {
+    display: flex;
+    justify-content: space-between;
+}
+.about__img-left {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0;
+	margin: 0;
+	width: 25%;
+	position: relative;
+	animation-name:blurAnime;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+}
+.about__img-left-top {
+	position: absolute;
+	bottom: 60%;
+	/* opacity: 0; */
+}
+.about__img-left-bottom {
+	position: absolute;
+	/* opacity: 0; */
+}
+.about__img-left li {
+	padding: 50px 0;
+}
+.about__img-right {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	padding: 0;
+	position: absolute;
+	top: 10%;
+	right: 30px;
+	width: 30%;
+	animation-name:blurAnime;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+}
+.about__img-right-top {
+	position: absolute;
+	bottom: 80%;
+	/* opacity: 0; */
+}
+.about__img-right-bottom {
+	margin-top: 180px;
+	/* opacity: 0; */
+}
+.about__textarea-main {
+	margin: 0 auto;
+	top: 10%;
+	left: 30%;
+	letter-spacing: 4px;
+}
+.about__profile {
+	display: flex;
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 0;
+	margin-top: 100px;
+}
+.about__name-profile {
+	font-size: 32px;
+	text-align: left;
+}
+.about__img-profile {
+	width: 40%;
+}
+.about__textarea-profile {
+	display: block;
+	margin: 0 0 0 40px;
+}
+@keyframes blurAnime {
+	from {
+	filter: about__img-right (10px);
+	filter: about__img-left (10px);
+	transform: scale(1.02);
+	}
+	to {
+	filter: about__img-right (0);
+	filter: about__img-left (0);
+	transform: scale(1);
+	}
+}
+/* .fadeUp {
+	animation-name:fadeUpAnime;
+	animation-duration:0.5s;
+	animation-fill-mode:forwards;
+	opacity: 0;
+	}
+@keyframes fadeUpAnime{
+	from {
+		opacity: 0;
+	transform: translateY(100px);
+	}
+	
+	to {
+		opacity: 1;
+	transform: translateY(0);
+	}
+	} */
+
+
+/* .skills__list {
+    display: flex;
+    justify-content: space-around;
+}
+.skills__list h3 {
+	text-align: center;
+	flex-grow: 1;
+}
+.skills__list img {
+	width: 50%;
+}
+.skills__list li {
+	text-align: center;
+} */
+
+/* Works main-page */
+#Works {
+    text-align: center;
+}
+.works__list-main {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+}
+.works__list-main img {
+	width: 60%;
+	margin: 0 auto;
+}
+.works__list-main-top {
+	flex: 0 0 33%;
+	margin-top: 80px;
+}
+.works__list-main-bottom {
+	flex: 0 0 40%;
+}
+/* Works sub-page */
+.works__list_sub-text {
+	max-width: 700px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+.works__list_sub-title {
+	padding: 0 0 0 40px;
+	display: inline-block;
+	border-bottom: solid 2px #fff;
+	padding-bottom: 20px;
+}
+.works__list_sub-textdetail li {
+	display: flex;
+	justify-content: center;
+}
+.works__list_sub-textdetail p {
+	width: 40%;
+	display: inline-block;
+	border-bottom: solid 2px #fff;
+	padding-bottom: 30px;
+}
+.works__list_sub-texttitle {
+	width: 30%;
+	white-space: nowrap;
+	display: inline-block;
+	border-bottom: solid 2px #fff;
+}
+.works__main_img-hb {
+	width: 70%;
+	display: flex;
+	position: relative;
+}
+.works__main_img-hbp {
+	position: absolute;
+	left: 48%;
+}
+.works__comp {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 100px;
+}
+.works__comp-hb {
+	width: 60%;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	margin-top: 100px;
+}
+.works__comp img {
+	width: 50%;
+}
+.works__canmp-insta {
+	display: flex;
+	text-align: center;
+	padding: 0;
+	gap: 50px;
+}
+.works__canmp-instaonly {
+	width: 70%;
+	text-align: center;
+}
+.works__camp-x {
+	display: flex;
+	text-align: center;
+	padding: 0;
+	gap: 50px;
+}
+.works__main_salonimg {
+	width: 60%;
+	margin: 0 auto;
+	text-align: center;
+}
+.works__camp-salonsite {
+	text-align: center;
+}
+.works__main_img-cafe {
+	width: 60%;
+	display: flex;
+	position: relative;
+}
+.works__img-mucafesp {
+	left: 100px;
+}
+.works__img-mucafepc {
+	position: absolute;
+	left: 350px;
+	z-index: -1;
+}
+.works__comp-cafe {
+	display: flex;
+	flex-direction: column;
+}
+.works__comp-cafepc {
+	width: 60%;
+	text-align: center;
+	padding: 0;
+	margin: 0 auto;
+	margin-top: 100px;
+	margin-bottom: 60px;
+}
+.works__comp-cafesp {
+	width: 70%;
+	display: flex;
+	padding: 0;
+	margin: 0 auto;
+	gap: 50px;
+}
+
+
+
+/* contact */
+#Contact {
+    text-align: center;
+}
+#Contact p {
+	line-height: 2;
+	margin-top: 80px;
+}
+.contactmore__btn {
+	text-decoration: none;
+	display: inline-block;
+	background: #e9839f;
+	border: solid 1px #e9839f;
+	color:#fff;
+    padding: 20px 70px 20px 70px;
+	border-radius:50px;
+    text-align: center;
+    outline: none;
+	margin-top: 100px;
+    /*線の基点とするためrelativeを指定*/
+	position:relative;
+}
+
+/*線の設定*/
+.contactmore__btn::before {
+    content: "";
+    /*絶対配置で線の位置を決める*/
+    position: absolute;
+    bottom: 0;
+    /*線の形状*/
+    width: 10px;
+    height: 1px;
+    background: #fff;
+}
+
+
+/*線と矢印を繰り返しアニメーション*/
+.contactmore__btn::before {
+    animation: arrowlong01 5s ease infinite;
+}
+
+@keyframes arrowlong01{
+    0%{width:0;opacity:0}
+    20%{width:0;opacity:1}
+    80%{width:105%;opacity:1}
+    100%{width:105%;opacity:0}
+}
+
+@keyframes arrowlong02{
+    0%{left:0;opacity:0}
+    20%{left:0;opacity:1}
+    80%{left:103%;opacity:1}
+    100%{left:103%;opacity:0}
+}
+
+/* Skills */
+.skills__card {
+	margin: 0 auto;
+    display: flex;
+    justify-content: center;
+	align-items: baseline;
+}
+.card {
+		display: flex;
+		flex-direction: column;
+}
+.card__text {
+	flex-grow: 1;
+} 
+.card__content {
+	text-align: center;
+}
+
+/* footer */
+#footer {
+    text-align: center;
+	margin-top: 200px;
+}
+
+
+/* contact form */
+.c-form {
+	max-width: 600px;
+	margin: 0 auto;
+}
+.c-form__item {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	margin-bottom: 20px;
+}
+.c-form__label,
+.c-form__input {
+	padding: 10px;
+}
+.c-form__label {
+	width: 90%;
+}
+.c-form__input {
+	width: 90%;
+	font-size: 16px;
+	border: solid 1px #333;
+	border-radius: 4px;
+}
+.c-form__input:focus-visible {
+	outline:#e9839f auto 1px;
+}
+.c-form__required {
+	color: #fff;
+	background-color: #e9839f;
+	border-radius: 4px;
+	padding: 5px 5px;
+	margin: 0 20px 0 0;
+}
+.c-form__any {
+    color: #fff;
+	background-color: #c7c7c7;
+	border-radius: 4px;
+	padding: 5px 5px;
+	margin: 0 20px 0 0;
+}
+textarea.c-form__input {
+	height: 160px;
+}
+.c-form__submit {
+	text-align: center;
+}
+.c-form__submit button {
+	font-size: 18px;
+	font-weight: bold;
+	color: #fff;
+	background-color: #e9839f;
+	border: solid 1px #e9839f;
+	border-radius: 50px;
+	padding: 10px 32px;
+	transition: 0.4s;
+	cursor: pointer;
+}
+.c-form__submit button:hover {
+	color: #e9839f;
+	background-color: transparent;
+}
+
+@media screen and (min-width: 767px) {
+	.c-form__item {
+		flex-wrap: nowrap;
+	}
+	.c-form__label {
+		width: 40%;
+	}
+	.c-form__input {
+		width: 55%;
+	}
+}
+
+/* サンクスページ */
+#thanks__text {
+	text-align: center;
+	margin: 300px 0 170px 0;
+}
