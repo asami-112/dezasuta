@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./js/script.js"></script>
     <style>
         @import url("https://use.typekit.net/bgz0pla.css");
     </style>
@@ -20,8 +22,20 @@
         <nav class="header__nav">
             <ul>
                 <li><a href="#About">About</a></li>
-                <li><a href="./index.html">Skills</a></li>
+                <li><a href="./index.html#Skills">Skills</a></li>
                 <li><a href="./index.html"><img img class="logo__img" src="./img/img/pc_logo@2x.png" alt="ロゴ"></a></li>
+                <li><a href="./works1.html">Works</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- SP用 -->
+        <div class="hamburger">   <!--3本線を囲うdivを作る-->
+            <span></span>
+        </div>
+        <nav class="header__nav-sp">
+            <ul>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./index.html#Skills">Skills</a></li>
                 <li><a href="./works1.html">Works</a></li>
                 <li><a href="./contact.html">Contact</a></li>
             </ul>
@@ -29,19 +43,22 @@
     </header>
     <main>
         <h2 class="article__title">About</h2>
-        <wrapper class="about__profile">
-        <img class="about__img-profile" src="./img/img/about@2x.png" alt="プロフィール画像">
-        <div class="about__textarea-profile">
-        <h3 class="about__name-profile">hakozaki asami</h3>
-        <p>1986年生まれ 栃木県在住</p>
-        <p>職歴:2004年入社〜現在 一般事務</p>
-        <p>職場で頼まれたチラシ制作を機にデザインに興味をもち、デザイン本や見よう見まねしながら独学で制作。
-            独学は続き、バナー制作を学ぶ機会がありwebデザインの難しさに興味をもつデザインを本格的に学ぶため「デザスタ」を受講。
-            得意の情報整理と自転車で鍛えた諦めない心と人の気持ちに敏感な性格を生かして目標達成のお手伝いをしたいです。
-        </p>
+        <div class="about__profile">
+            <img class="about__img-profile" src="./img/img/about@2x.png" alt="プロフィール画像">
+            <div class="about__textarea-profile">
+                <p class="about__name-profile">hakozaki asami</p>
+                <p>1986年生まれ 栃木県在住</p>
+                <p>職歴:2004年入社〜現在 一般事務</p>
+                <p>職場で頼まれたチラシ制作を機にデザインに興味をもち、デザイン本や見よう見まねしながら独学で制作。
+                    独学は続き、バナー制作を学ぶ機会がありwebデザインの難しさに興味をもつデザインを本格的に学ぶため「デザスタ」を受講。
+                    得意の情報整理と自転車で鍛えた諦めない心と人の気持ちに敏感な性格を生かして目標達成のお手伝いをしたいです。
+                </p>
+            </div>
         </div>
-        </wrapper>
-
+        <!-- wave右下り -->
+        <div class="wave turnRight">
+            <canvas class="waveCanvas"></canvas>
+        </div>
         <div class="toTop">
             <a href="./index.html">
                 <img src="./img/img/pc_totop_icon@2x.png" alt="toTopアイコン">
@@ -52,5 +69,6 @@
     <footer id="footer">
         <p>©hakozaki_asami</p>
     </footer>
+    <script src="./js/script.js"></script>
 </body>
 </html>

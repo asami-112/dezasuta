@@ -1,22 +1,19 @@
 @charset "utf-8";
+/* 共通設定 */
 body {
-	max-width: 1366px;
+	width: 100%;
 	margin: 0 auto;
     color: #1b1464;
 }
 .container {
-    margin: 0 auto;
+	max-width: 1366px;
+    margin: 0;
 }
 h2 {
     text-align: center;
     font-size: 48px;
     color: #e9839f;
 	margin-top: 300px;
-}
-h3 {
-	margin: 0 auto;
-	font-size: 32px;
-	text-align: center;
 }
 img {
     max-width: 100%;
@@ -27,6 +24,8 @@ img {
 	width: 165px;
 	text-align: center;
 }
+
+/* readmore viewmore ボタン */
 .more__btn {
 	position: relative;
     /*ボタンの形状*/
@@ -43,50 +42,61 @@ img {
     /*アニメーションの指定*/
     transition: ease .2s;
 }
+.more__btn span{
+	padding: 0 30px 0 0;
+}
 .more__btn:hover {
-	background: #e9839eca;
+	background: #e9839ee4;
 }
 /* 矢印が右に移動して現在地に戻る */
-
-.more__btn::after{
+.more__btn::after {
     content: '';
     /*絶対配置で矢印の位置を決める*/
 	position: absolute;
-    top:43%;
-    right: 13px;
+    top:50%;
+    right: 35px;
     /*矢印の形状*/
     width: 10px;
     height: 10px;
     border-top: 2px solid #fff;
     border-right: 2px solid #fff;
-    transform: rotate(45deg);
+    transform: translateY(-50%) rotate(45deg);
 }
-
-/*hoverした際のアニメーション*/
-.more__btn::after{
+.more__btn:hover::after {
+	/*hoverした際のアニメーション*/
     animation: arrow .5s;
 }
-
+/* 矢印の横棒 */
+.more__btn::before {
+	position: absolute;
+	content: "";
+	width: 34px;
+	height: 2px;
+	background-color: #FFFFFF;
+	top: 50%;
+	right: 35px;
+	transform: translateY(-50%);
+}
 @keyframes arrow {
     50% {
-    right: 10px;
+    right: 33px;
     }
     100% {
-    right: 13px;
+    right: 35px;
     }
 }
-
+/* サブページのh2タイトル */
 .article__title {
 	text-align: left;
     margin-left: 170px;
 }
+/* 下部の prev next totop */
 .bottom__link {
 	margin-top: 300px;
 }
 .bottom__link-prev {
 	display: flex;
 	align-items: center;
-	width: 700px;
 	margin: 0 auto;
 }
 .bottom__link-next {
@@ -127,17 +137,15 @@ img {
 	align-items: center;
 	margin-top: 100px;
 }
-
 /* 背景グラデーション */
 body {
-	width: 100%;
+	max-width: 100%;
 	height: 100%;
     margin: 0;
 	background:linear-gradient(45deg, #accbee,#e7f0fd,#f7e6eb,#e4edfd);/*グラデーションを定義*/
 	background-size: 1000% 1000%;/*サイズを大きくひきのばす*/
 	animation: bggradient 20s ease infinite;
 }
-
 @keyframes bggradient{
 	0% {
 		background-position: 0% 50%;
@@ -151,16 +159,28 @@ body {
 }
 /* 背景ウェーブ */
 .wave{
-    position:relative;
-    height:200px;/*何も表示されない場合は各波の親要素に高さを持たせましょう。*/
-    transform: rotate( 20deg );
-    }
-    canvas{
+    position: relative;
+    transform: rotate(15deg);
+	margin: 0 auto;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+.turnLeft{
+	transform: rotate(-15deg);
+}
+.turnRight{
+	transform: rotate(15deg);
+}
+.waveCanvas{
     position: absolute;
     bottom: 0;
-    left:0;
+    left: -3%;
     width: 100%;
-    }
+}
+.turnLeft.turnRight.waveCanvas.waveCanvas{
+	top: 150px;
+}
 
 /* ヘッダー */
 .header__nav ul {
@@ -177,12 +197,13 @@ body {
 	z-index: 2;
 }
 .header__inner {
-    /* padding-right: 0.2%;
-    /* 幅147 / 全体1990 = 0.7386 */
-    /* padding-left:  0.2%; */ 
     position: absolute;
     width: 100%;
 }
+.header__nav-sp {
+    display: none;
+}
+
 
 /* ファーストビュー */
 .fv__text-left {
@@ -193,6 +214,7 @@ body {
 	font-family: "ht-neon", sans-serif;
     font-weight: 400;
     font-style: normal;
+	letter-spacing: 0;
 }
 .fv__text-right {
     position: relative;
@@ -202,6 +224,7 @@ body {
 	font-family: "ht-neon", sans-serif;
     font-weight: 400;
     font-style: normal;
+	letter-spacing: 0;
 }
 h1 {
     text-align: center;
@@ -214,6 +237,10 @@ h1 {
 }
 #About p {
 	gap: 20px;
+	letter-spacing: 0.3em;
+}
+.name {
+	font-size: 32px;
 }
 .about__img {
     display: flex;
@@ -226,10 +253,12 @@ h1 {
 	padding: 0;
 	margin: 0;
 	width: 25%;
-	position: relative;
-	animation-name:blurAnime;
-	animation-duration:1s;
+	animation-name:blurAnime;  /* ▼ほわっとさせるアニメーション */
+	animation-duration:4s;
 	animation-fill-mode:forwards;
+	position: absolute;
+    top: 50%;
+
 }
 .about__img-left-top {
 	position: absolute;
@@ -241,7 +270,7 @@ h1 {
 	/* opacity: 0; */
 }
 .about__img-left li {
-	padding: 50px 0;
+	padding: 100px 0;
 }
 .about__img-right {
 	display: flex;
@@ -249,12 +278,24 @@ h1 {
 	align-items: flex-end;
 	padding: 0;
 	position: absolute;
-	top: 10%;
+	top: 30%;
 	right: 30px;
 	width: 30%;
-	animation-name:blurAnime;
-	animation-duration:1s;
+	animation-name:blurAnime;  /* ▼ほわっとさせるアニメーション */
+	animation-duration:4s;
 	animation-fill-mode:forwards;
+}
+@keyframes blurAnime {
+	from {
+	filter: about__img-right (10px);
+	filter: about__img-left (10px);
+	transform: scale(1.02);
+	}
+	to {
+	filter: about__img-right (0);
+	filter: about__img-left (0);
+	transform: scale(1);
+	}
 }
 .about__img-right-top {
 	position: absolute;
@@ -269,8 +310,8 @@ h1 {
 	margin: 0 auto;
 	top: 10%;
 	left: 30%;
-	letter-spacing: 4px;
 }
+/* About---サブページ */
 .about__profile {
 	display: flex;
 	max-width: 1000px;
@@ -289,53 +330,25 @@ h1 {
 	display: block;
 	margin: 0 0 0 40px;
 }
-@keyframes blurAnime {
-	from {
-	filter: about__img-right (10px);
-	filter: about__img-left (10px);
-	transform: scale(1.02);
-	}
-	to {
-	filter: about__img-right (0);
-	filter: about__img-left (0);
-	transform: scale(1);
-	}
-}
-/* .fadeUp {
-	animation-name:fadeUpAnime;
-	animation-duration:0.5s;
-	animation-fill-mode:forwards;
-	opacity: 0;
-	}
-@keyframes fadeUpAnime{
-	from {
-		opacity: 0;
-	transform: translateY(100px);
-	}
-	
-	to {
-		opacity: 1;
-	transform: translateY(0);
-	}
-	} */
 
-
-/* .skills__list {
-    display: flex;
-    justify-content: space-around;
+/* Skills */
+#Skills img {
+	height: 100%;
 }
-.skills__list h3 {
+.design-icon {
+	width: 90%;
+}
+.skillscard {
+	display: flex;
+	justify-content: space-evenly;
+}
+#Skills li {
 	text-align: center;
-	flex-grow: 1;
 }
-.skills__list img {
-	width: 50%;
+.skillscard__title {
+	font-weight: 500;
 }
-.skills__list li {
-	text-align: center;
-} */
-
-/* Works main-page */
+/* Works---メインページ */
 #Works {
     text-align: center;
 }
@@ -349,6 +362,7 @@ h1 {
 .works__list-main img {
 	width: 60%;
 	margin: 0 auto;
+	filter:drop-shadow(1px 1px 5px #0e0d4255);
 }
 .works__list-main-top {
 	flex: 0 0 33%;
@@ -356,8 +370,9 @@ h1 {
 }
 .works__list-main-bottom {
 	flex: 0 0 40%;
+	padding-top: 5%;
 }
-/* Works sub-page */
+/* Work---サブページ */
 .works__list_sub-text {
 	max-width: 700px;
 	margin: 0 auto;
@@ -365,10 +380,12 @@ h1 {
 	flex-direction: column;
 }
 .works__list_sub-title {
-	padding: 0 0 0 40px;
+	width: 15%;
+	margin: 0 10%;
 	display: inline-block;
 	border-bottom: solid 2px #fff;
 	padding-bottom: 20px;
+	text-align: center;
 }
 .works__list_sub-textdetail li {
 	display: flex;
@@ -378,7 +395,7 @@ h1 {
 	width: 40%;
 	display: inline-block;
 	border-bottom: solid 2px #fff;
-	padding-bottom: 30px;
+	padding: 0 25px 35px 25px
 }
 .works__list_sub-texttitle {
 	width: 30%;
@@ -387,13 +404,7 @@ h1 {
 	border-bottom: solid 2px #fff;
 }
 .works__main_img-hb {
-	width: 70%;
-	display: flex;
-	position: relative;
-}
-.works__main_img-hbp {
-	position: absolute;
-	left: 48%;
+	text-align: center;
 }
 .works__comp {
 	display: flex;
@@ -435,17 +446,7 @@ h1 {
 	text-align: center;
 }
 .works__main_img-cafe {
-	width: 60%;
-	display: flex;
-	position: relative;
-}
-.works__img-mucafesp {
-	left: 100px;
-}
-.works__img-mucafepc {
-	position: absolute;
-	left: 350px;
-	z-index: -1;
+	text-align: center;
 }
 .works__comp-cafe {
 	display: flex;
@@ -466,8 +467,6 @@ h1 {
 	margin: 0 auto;
 	gap: 50px;
 }
-
-
 
 /* contact */
 #Contact {
@@ -491,55 +490,22 @@ h1 {
     /*線の基点とするためrelativeを指定*/
 	position:relative;
 }
-
 /*線の設定*/
-.contactmore__btn::before {
+.contactmore__btn::after {
     content: "";
     /*絶対配置で線の位置を決める*/
     position: absolute;
-    bottom: 0;
+    bottom: 15px;
+    left: 10%;
+    transform: translateY(-50%);
+	transition: .5s all;
     /*線の形状*/
-    width: 10px;
+    width: 0;
     height: 1px;
     background: #fff;
 }
-
-
-/*線と矢印を繰り返しアニメーション*/
-.contactmore__btn::before {
-    animation: arrowlong01 5s ease infinite;
-}
-
-@keyframes arrowlong01{
-    0%{width:0;opacity:0}
-    20%{width:0;opacity:1}
-    80%{width:105%;opacity:1}
-    100%{width:105%;opacity:0}
-}
-
-@keyframes arrowlong02{
-    0%{left:0;opacity:0}
-    20%{left:0;opacity:1}
-    80%{left:103%;opacity:1}
-    100%{left:103%;opacity:0}
-}
-
-/* Skills */
-.skills__card {
-	margin: 0 auto;
-    display: flex;
-    justify-content: center;
-	align-items: baseline;
-}
-.card {
-		display: flex;
-		flex-direction: column;
-}
-.card__text {
-	flex-grow: 1;
-} 
-.card__content {
-	text-align: center;
+.contactmore__btn:hover::after {
+	width: 80%;
 }
 
 /* footer */
@@ -548,7 +514,6 @@ h1 {
 	margin-top: 200px;
 }
 
-
 /* contact form */
 .c-form {
 	max-width: 600px;
@@ -556,8 +521,6 @@ h1 {
 }
 .c-form__item {
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
 	margin-bottom: 20px;
 }
 .c-form__label,
@@ -594,11 +557,10 @@ textarea.c-form__input {
 	height: 160px;
 }
 .c-form__submit {
-	text-align: center;
+	margin-left: 50%;
 }
 .c-form__submit button {
 	font-size: 18px;
-	font-weight: bold;
 	color: #fff;
 	background-color: #e9839f;
 	border: solid 1px #e9839f;
@@ -612,20 +574,245 @@ textarea.c-form__input {
 	background-color: transparent;
 }
 
-@media screen and (min-width: 767px) {
-	.c-form__item {
-		flex-wrap: nowrap;
-	}
-	.c-form__label {
-		width: 40%;
-	}
-	.c-form__input {
-		width: 55%;
-	}
-}
-
 /* サンクスページ */
 #thanks__text {
 	text-align: center;
 	margin: 300px 0 170px 0;
+}
+
+/*========= 流れるテキスト ===============*/
+
+/*全共通*/
+
+.slide-in {
+	overflow: hidden;
+    display: inline-block;
+}
+.slide-in_inner {
+	display: inline-block;
+
+}
+/*左右のアニメーション*/
+.leftAnime{
+    opacity: 0;/*事前に透過0にして消しておく*/
+}
+.slideAnimeLeftRight {
+	animation-name:slideTextX100;
+	animation-duration:2s;
+	animation-fill-mode:forwards;
+    opacity: 0;
+}
+@keyframes slideTextX100 {
+from {
+	transform: translateX(-100%); /*要素を左の枠外に移動*/
+        opacity: 0;
+}
+to {
+	transform: translateX(0);/*要素を元の位置に移動*/
+    opacity: 1;
+}
+}
+.slideAnimeRightLeft {
+	animation-name:slideTextX-100;
+	animation-duration:0.8s;
+	animation-fill-mode:forwards;
+    opacity: 0;
+}
+
+@keyframes slideTextX-100 {
+from {
+	transform: translateX(100%);/*要素を右の枠外に移動*/
+    opacity: 0;
+}
+to {
+	transform: translateX(0);/*要素を元の位置に移動*/
+    opacity: 1;
+}
+}
+
+
+/* sp版 */
+@media screen and (max-width:767px) {
+    .container {
+        width: 100%;
+        margin: 0 auto;
+		text-align: center;
+    }
+	.article__title {
+		margin-left: 8%;
+		padding: 10%;
+		margin: 0;
+	}
+	.header__nav-sp {
+        z-index: 9998;
+    }
+	.fv__text-left {
+		margin: 0 0 80px 0;
+		padding-top: 20%;
+		font-size: 90px;
+	}
+	.fv__text-right {
+		font-size: 90px;
+	}
+	.works__list-main {
+		display: block;
+	}
+	.works__list-main-bottom {
+		margin-top: 80px;
+	}
+	.works__list_sub-title {
+		width: 30%;
+		margin: 0 15%;
+		padding-bottom: 20px;
+	}
+	.works__list_sub-textdetail {
+		padding: 0;
+	}
+	.works__list_sub-textdetail li {
+		flex-direction: column;
+		align-items: center;
+	}
+	.works__list_sub-textdetail p {
+		width: 60vw;
+		padding-bottom: 10px;
+		padding-left: 15px;
+	}
+	.works__canmp-instaonly {
+		padding: 0;
+	}
+	.works__camp-salonsite {
+		padding: 0;
+	}
+	.about__profile {
+		display: block;
+	}
+	.about__name-profile {
+		margin-top: 15%;
+	}
+	.about__img-profile {
+		width: 60%;
+		padding: 0 20%;
+		text-align: center;
+	}
+	.about__textarea-profile {
+		margin: 0 40px;
+	}
+	#Slills p {
+		padding-bottom: 20px;
+	}
+	.skillscard {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		justify-content: space-between;
+		padding: 20px;
+	}
+	#Skills li {
+		width: 50%;
+	}
+	#Skills img {
+		margin-top: 50px;
+	}
+	.design-icon {
+		width: 40%;
+	}
+	.c-form__item {
+		flex-wrap: nowrap;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.c-form__label {
+		width: 60%;
+	}
+	.c-form__input {
+		width: 55%;
+	}
+	.c-form__submit {
+		margin-left: 20%;
+	}
+	.bottom__link {
+		margin-top: 130px;
+	}
+	#footer {
+		margin-top: 100px;
+	}
+	/* ハンバーガーメニュー */
+    .header__nav {
+        display: none;        /* pc版のnavを消す */
+    }
+    /* ハンバーガーの枠組み */
+    .hamburger {
+        display: block;  
+		position: fixed;     /* ハンバーガーメニューを表示する */
+        width: 30px;          /* 3本線の枠 */
+        height: 30px;         /* 3本線の枠 */
+        right: 10px;          /* 左にいたものを右に移動 */
+        top: 10px;
+		right: 10px;
+        cursor: pointer;
+        z-index: 9999;        /* 要素の重なり順を調整 最前面にハンバーガーメニューを出す ※ position系が付いてる時にしか適用しない [最前面→9999][最背面→ -1] */
+    }
+    /* ハンバーガーの3本線 */
+    .hamburger span {
+        width: 30px;         /* widthとheightですごい細長い長方形を作って線に見立ててる状態 */
+        height: 2px;
+        background-color: #1b1464;
+        position: absolute;     /* ハンバーガーの枠組みの上に浮かせる */
+        top: 15px;              /* 枠組みが30pxなので真ん中に線をつけたいから半分の15px */
+		right: 15px;
+        transition: .3s;        /* 0.3秒かけてxの状態に動く */
+    }
+    /* 擬似要素 (::before,::after) HTMLではないけどCSSで擬似的に要素を作る。装飾系で使用。２個まで */
+    .hamburger span::before {    /* 上の線  装飾が前に来るのは[before] */
+        /* 45度回転させる */
+        width: 30px;
+        height: 2px;
+        background-color: #1b1464;
+        position: absolute;
+        content: "";          /* 本来ない要素を擬似要素で作ってるからcontent:"";を入れて要素と認識させる before,afterが入る時はcontentはセット */
+        top: -12px;           /* 真ん中の線から12px分上に上げる */
+        transition: .3s;      /* 0.3秒かけてxの状態に動く */
+    }
+    .hamburger span::after {    /* 下の線 装飾が後ろに来るのは[after]*/
+        width: 30px;
+        height: 2px;
+        background-color: #1b1464;
+        position: absolute;
+        content: "";
+        bottom: -12px;              /* 真ん中の線から12px分下に下げる */
+        transition: .3s;           /* 0.3秒かけてxの状態に動く */
+    }
+    /* ハンバーガーメニューが開いた時 */
+    .open span {
+        background-color: transparent;  /* JQueryのToggleclassでつけたopenに対してtransparentで透明にする。このspanは基本の真ん中の線 */
+    }
+    .open span::before {
+        transform: rotate(45deg);    /* rotate→回転 deg→度数 45度、線を回転させる */
+        top: 0;                       /* 3本線でつけた位置を0にする 交点を作る */
+    }
+    .open span::after {
+        transform: rotate(-45deg);    /* -45度、線を回転させる */
+        bottom: 0;                    /* 3本線でつけた位置を0にする 交点を作る */
+    }
+    .header__nav-sp {
+        position: absolute;
+		position: fixed;
+        width: 100%;                  /* 白い覆いを幅いっぱいに表示 */
+        height: 100vh;                /*「vew hight」どんな画面サイズであっても画面いっぱいに表示 */
+        background-color: #ffffffe6;     /* 半透明入りの白のカラーコード */
+    }
+	.header__nav-sp li {
+		font-size: 30px;
+	}
+    .header__nav-sp ul {
+        height: 100%;                /* 画面いっぱいに表示*/
+        display: flex;
+        flex-direction: column;      /* 縦並び */
+        align-items: center;         /* 真ん中配置 */
+        justify-content: center;     /* 画面中央配置 */
+        gap: 40px; 
+		padding: 0;                  /* 文字間調整 */
+    }
+
 }

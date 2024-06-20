@@ -1,0 +1,150 @@
+var unit = 100,
+    canvasList, // キャンバスの配列
+    info = {}, // 全キャンバス共通の描画情報
+    colorList; // 各キャンバスの色情報
+
+
+/**
+ * 初期化関数
+ * 変数を初期化し、アニメーションを開始します。
+ */
+function init() {
+    info.seconds = 0;
+    info.t = 0;
+    canvasList = [];
+    colorList = [];
+
+    // クラス 'waveCanvas' を持つ全てのキャンバスを選択
+    document.querySelectorAll('.waveCanvas').forEach((canvas, index) => {
+        canvasList.push(canvas);
+        colorList.push(['#fff', '#fff', '#fff']); // 各波線の色設定
+        canvas.width = document.documentElement.clientWidth; // Canvasの幅をウィンドウ幅に設定
+        canvas.height = 200; // 波の高さを設定
+        canvas.contextCache = canvas.getContext("2d");
+    });
+
+
+    // アニメーションを開始
+    update();
+}
+
+
+function update() {
+    canvasList.forEach((canvas, index) => {
+        // 各キャンバスの描画
+        draw(canvas, colorList[index]);
+    });
+    // 共通の描画情報の更新
+    info.seconds += 0.014;
+    info.t = info.seconds * Math.PI;
+    // 再帰的に自身を呼び出す
+    setTimeout(update, 35);
+}
+
+
+/**
+ * アニメーション描画関数
+ * 一フレームのアニメーションを描画し、20ms待機してから再度呼び出します。
+ */
+function draw(canvas, color) {
+    var context = canvas.contextCache;
+    // キャンバスの描画をクリア
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+
+    // 波線を描画
+    drawWave(canvas, color[0], 0.8, 3, 0);
+    drawWave(canvas, color[1], 0.5, 4, 0);
+    drawWave(canvas, color[2], 0.3, 1.6, 0);
+    drawWave(canvas, color[3], 0.2, 3, 100);
+    drawWave(canvas, color[4], 0.5, 1.6, 250);
+}
+
+
+/**
+ * 波を描画する関数
+ *
+ * @param {HTMLCanvasElement} canvas - キャンバス要素
+ * @param {string} color - 波の色
+ * @param {number} alpha - 波の透明度
+ * @param {number} zoom - 波の幅のズーム
+ * @param {number} delay - 波の開始位置の遅れ
+ */
+function drawWave(canvas, color, alpha, zoom, delay) {
+    var context = canvas.contextCache;
+    context.strokeStyle = color; // 線の色を設定
+    context.lineWidth = 1; // 線の幅を設定
+    context.globalAlpha = alpha;
+    context.beginPath(); // パスの開始
+    drawSine(canvas, info.t / 2, zoom, delay);
+    context.stroke(); // 線を描画
+}
+
+
+/**
+ * サイン波を描画する関数
+ *
+ * @param {HTMLCanvasElement} canvas - キャンバス要素
+ * @param {number} t - 時間変数
+ * @param {number} zoom - 波の幅のズーム
+ * @param {number} delay - 波の開始位置の遅れ
+ */
+function drawSine(canvas, t, zoom, delay) {
+    var xAxis = Math.floor(canvas.height / 2);
+    var yAxis = 0;
+    var context = canvas.contextCache;
+    var x = t; // 時間をx位置とする
+    var y = Math.sin(x) / zoom;
+    context.moveTo(yAxis, unit * y + xAxis); // スタート位置にパスを置く
+
+
+    // セグメントを描画するループ
+    for (var i = yAxis; i <= canvas.width + 10; i += 10) {
+        x = t + (-yAxis + i) / unit / zoom;
+        y = Math.sin(x - delay) / 3;
+        context.lineTo(i, unit * y + xAxis);
+    }
+}
+
+
+// アニメーションを初期化
+init();
+
+// ハンバーガーメニュー
+$(function(){
+    $(".hamburger").on("click", function(){   //ハンバーガーをクリックしたら、
+        $(".hamburger").toggleClass("open");  //ハンバーガーメニューが開く
+        $(".header__nav-sp").fadeToggle();    //sp版のnavを表示させる。
+    });
+});
+
+function slideAnime(){
+	//====左に動くアニメーションここから===
+		$('.leftAnime').each(function(){ 
+			var elemPos = $(this).offset().top-50;
+			var scroll = $(window).scrollTop();
+			var windowHeight = $(window).height();
+			if (scroll >= elemPos - windowHeight){
+				//左から右へ表示するクラスを付与
+				//テキスト要素を挟む親要素（左側）とテキスト要素を元位置でアニメーションをおこなう
+				$(this).addClass("slideAnimeLeftRight"); //要素を左枠外にへ移動しCSSアニメーションで左から元の位置に移動
+				$(this).children(".leftAnimeInner").addClass("slideAnimeRightLeft");  //子要素は親要素のアニメーションに影響されないように逆の指定をし元の位置をキープするアニメーションをおこなう
+			}else{
+				//左から右へ表示するクラスを取り除く
+				$(this).removeClass("slideAnimeLeftRight");
+				$(this).children(".leftAnimeInner").removeClass("slideAnimeRightLeft");
+				
+			}
+		});
+		
+	}
+	
+	// 画面をスクロールをしたら動かしたい場合の記述
+	$(window).scroll(function (){
+		slideAnime();/* アニメーション用の関数を呼ぶ*/
+	});// ここまで画面をスクロールをしたら動かしたい場合の記述
+
+	// 画面が読み込まれたらすぐに動かしたい場合の記述
+	$(window).on('load', function(){
+		slideAnime();/* アニメーション用の関数を呼ぶ*/
+	});// ここまで画面が読み込まれたらすぐに動かしたい場合の記述

@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./js/script.js"></script>
     <style>
         @import url("https://use.typekit.net/bgz0pla.css");
     </style>
@@ -20,8 +22,20 @@
         <nav class="header__nav">
             <ul>
                 <li><a href="./about.html">About</a></li>
-                <li><a href="./index.html">Skills</a></li>
+                <li><a href="./index.html#Skills">Skills</a></li>
                 <li><a href="./index.html"><img img class="logo__img" src="./img/img/pc_logo@2x.png" alt="ロゴ"></a></li>
+                <li><a href="./works1.html">Works</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- SP用 -->
+        <div class="hamburger">   <!--3本線を囲うdivを作る-->
+            <span></span>
+        </div>
+        <nav class="header__nav-sp">
+            <ul>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./index.html#Skills">Skills</a></li>
                 <li><a href="./works1.html">Works</a></li>
                 <li><a href="./contact.html">Contact</a></li>
             </ul>
@@ -35,6 +49,10 @@
         <a class="logo" href="./index.html">
             <img img class="logo__img" src="./img/img/pc_logo@2x.png" alt="ロゴ">
         </a>
+        <!-- wave右下り -->
+        <div class="wave turnRight">
+            <canvas class="waveCanvas"></canvas>
+        </div>
         <div class="toTop">
             <a href="#">
                 <img src="./img/img/pc_totop_icon@2x.png" alt="toTopアイコン">
@@ -45,5 +63,6 @@
     <footer id="footer">
             <p>©hakozaki_asami</p>
     </footer>
+    <script src="./js/script.js"></script>
 </body>
 </html>

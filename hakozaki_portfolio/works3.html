@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./js/script.js"></script>
     <style>
         @import url("https://use.typekit.net/bgz0pla.css");
     </style>
@@ -20,9 +22,21 @@
         <nav class="header__nav">
             <ul>
                 <li><a href="./about.html">About</a></li>
-                <li><a href="./index.html">Skills</a></li>
+                <li><a href="./index.html#Skills">Skills</a></li>
                 <li><a href="./index.html"><img img class="logo__img" src="./img/img/pc_logo@2x.png" alt="ロゴ"></a></li>
                 <li><a href="#Works">Works</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- SP用 -->
+        <div class="hamburger">   <!--3本線を囲うdivを作る-->
+            <span></span>
+        </div>
+        <nav class="header__nav-sp">
+            <ul>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./index.html#Skills">Skills</a></li>
+                <li><a href="./works1.html">Works</a></li>
                 <li><a href="./contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -32,7 +46,11 @@
         <div class="works__main_img">
             <img src="./img/img/mu_recruit@2x.png" alt="モックアップ求人">
         </div>
-        <wrapper class="works__list_sub-text">
+        <!-- wave右下り -->
+        <div class="wave turnRight">
+            <canvas class="waveCanvas"></canvas>
+        </div>
+        <div class="works__list_sub-text">
             <p class="works__list_sub-title">架空バナー</p>
             <ul class="works__list_sub-textdetail">
                 <li>
@@ -62,7 +80,7 @@
                     <p>photoshop,Illustrator</p>
                 </li>
             </ul>
-        </wrapper>
+        </div>
         <div class="works__comp">
             <ul class="works__canmp-instaonly">
                 <li>
@@ -70,8 +88,12 @@
                 </li>
             </ul>
         </div>
+        <!-- wave左下り -->
+        <div class="wave turnLeft">
+            <canvas class="waveCanvas"></canvas>
+        </div>
     </main>
-    <wrapper class="bottom__link">
+    <div class="bottom__link">
         <a href="./works2.html" class="bottom__link-prev">
             <img src="./img/img/pc_prev_icon@2x.png" alt="プレビュー矢印">
             <p>Prev</p>
@@ -80,9 +102,10 @@
             <p>Next</p>
             <img src="./img/img/pc_next_icon@2x.png" alt="ネクスト矢印">
         </a>
-    </wrapper>
+    </div>
     <footer id="footer">
             <p>©hakozaki_asami</p>
     </footer>
+    <script src="./js/script.js"></script>
 </body>
 </html>

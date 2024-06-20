@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./js/script.js"></script>
     <style>
         @import url("https://use.typekit.net/bgz0pla.css");
     </style>
@@ -20,9 +22,21 @@
         <nav class="header__nav">
             <ul>
                 <li><a href="./about.html">About</a></li>
-                <li><a href="./index.html">Skills</a></li>
+                <li><a href="./index.html#Skills">Skills</a></li>
                 <li><a href="./index.html"><img img class="logo__img" src="./img/img/pc_logo@2x.png" alt="ロゴ"></a></li>
                 <li><a href="#Works">Works</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- SP用 -->
+        <div class="hamburger">   <!--3本線を囲うdivを作る-->
+            <span></span>
+        </div>
+        <nav class="header__nav-sp">
+            <ul>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./index.html#Skills">Skills</a></li>
+                <li><a href="./works1.html">Works</a></li>
                 <li><a href="./contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -30,10 +44,13 @@
     <main>
         <h2 class="article__title">Works</h2>
         <div class="works__main_img-cafe">
-            <img class="works__img-mucafesp" src="./img/img/mu_cafe_sp@2x.png" alt="モックアップカフェsp">
-            <img class="works__img-mucafepc" src="./img/img/mu_cafe_pc@2x.png" alt="モックアップカフェpc">
+            <img src="./img/img/mu_cafe@2x.png" alt="モックアップカフェ">
         </div>
-        <wrapper class="works__list_sub-text">
+        <!-- wave右下り -->
+        <div class="wave turnRight">
+            <canvas class="waveCanvas"></canvas>
+        </div>
+        <div class="works__list_sub-text">
             <p class="works__list_sub-title">架空バナー</p>
             <ul class="works__list_sub-textdetail">
                 <li>
@@ -53,7 +70,7 @@
                     <p>HTML,CSS,Javascript</p>
                 </li>
             </ul>
-        </wrapper>
+        </div>
         <div class="works__comp-cafe">
             <ul class="works__comp-cafepc">
                 <li>
@@ -69,7 +86,11 @@
                 </li>
             </ul>
         </div>
-        <wrapper class="bottom__link">
+        <!-- wave左下り -->
+        <div class="wave turnLeft">
+            <canvas class="waveCanvas"></canvas>
+        </div>
+        <div class="bottom__link">
             <a href="./works4.html" class="bottom__link-prev">
                 <img src="./img/img/pc_prev_icon@2x.png" alt="プレビュー矢印">
                 <p>Prev</p>
@@ -77,10 +98,11 @@
             <div class="bottom__link-next-end">
                 <p>Next</p>
             </div>
-        </wrapper>
+        </div>
     </main>
     <footer id="footer">
             <p>©hakozaki_asami</p>
     </footer>
+    <script src="./js/script.js"></script>
 </body>
 </html>

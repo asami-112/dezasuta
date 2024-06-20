@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/jquery.matchHeight.js"></script>
     <style>
         @import url("https://use.typekit.net/bgz0pla.css");
     </style>
@@ -21,24 +24,35 @@
             <nav class="header__nav">
                 <ul>
                     <li><a href="./about.html">About</a></li>
-                    <li><a href="#Skills">Skills</a></li>
+                    <li><a href="./index.html#Skills">Skills</a></li>
                     <li><a href="#"><img img class="logo__img" src="./img/img/pc_logo@2x.png" alt="ロゴ"></a></li>
                     <li><a href="./works1.html">Works</a></li>
                     <li><a href="./contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
+        <!-- SP用 -->
+        <div class="hamburger">   <!--3本線を囲うdivを作る-->
+            <span></span>
+        </div>
+        <nav class="header__nav-sp">
+            <ul>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./index.html#Skills">Skills</a></li>
+                <li><a href="./works1.html">Works</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
     <div class="container">
-        <!-- wave -->
-        <div class="wave">
-        <canvas id="waveCanvas"></canvas>
-        </div>
-
         <section id="fv">
             <p class="fv__text-left">Connection of heart</p>
             <h1>こころのつながりを大切に<br>より良いカタチにしていくお手伝い</h1>
+            <!-- wave右下り -->
+            <div class="wave turnRight">
+                <canvas class="waveCanvas"></canvas>
+            </div>
             <p class="fv__text-right">Good design</p>
         </section>
 
@@ -50,8 +64,8 @@
                     <li class="about__img-left-bottom"><img src="./img/img/nikko_1@2x.png" alt="日光男体山"></li>
                 </ul>
             </div>
-            <wrapper class="about__textarea-main">
-            <h3>hakozaki asami</h3>
+            <div class="about__textarea-main">
+            <p class="name">hakozaki asami</p>
             <p>栃木県在住</p>
             <p>サイクリングがすき<br>
                 愛車のロードバイクで近所の山へ。<br>
@@ -61,7 +75,11 @@
                 フットワークが軽い自由人<br>
                 そんなわたしがデザインをすきになったきっかけは...
             </p>
-            </wrapper>
+        </div>
+        <!-- wave左下り -->
+            <div class="wave turnLeft">
+                <canvas class="waveCanvas"></canvas>
+            </div>
             <div class="about__img-right">
                 <ul>
                     <li class="about__img-right-top"><img src="./img/img/arashiyama@2x.png" alt="嵐山"></li>
@@ -69,43 +87,37 @@
                 </ul>
             </div>
             <div class="btn_readmore">
-                <a class="more__btn" href="./about.html">read more</a>
+                <a class="more__btn" href="./about.html"><span>read more</span></a>
             </div>
-            <!-- <img src="./img/img/pc_arroes@2x.png" alt="矢印" class="more__btn-arrows"> -->
         </section>
-
         <section id="Skills">
             <h2>Skills</h2>
-            <wrapper class="skills__card">
-                <div class="card">
-                    <img src="./img/img/pc_design_icon.svg" alt="デザインアイコン">
-                </div>
-                <div class="card__content">
-                    <h3>Design</h3>
-                    <p class="card__text">Illustrator<br>Photoshop</p>
-                </div>
-                <div class="card">
+            <ul class="skillscard">
+                <li>
+                    <img class="design-icon" src="./img/img/pc_design_icon.svg" alt="デザインアイコン">
+                    <h3 class="skillscard__title"><span class="slide-in leftAnime"><span class="slide-in_inner leftAnimeInner">Design</span></span></h3>
+                    <p>Illustrator<br>Photoshop</p>
+                </li>
+                <li>
                     <img src="./img/img/pc_coding_icon.svg" alt="コーディングアイコン">
-                </div>
-                <div class="card__content">
-                    <h3>Coding</h3>
-                    <p class="card__text">HTML<br>CSS<br>Javascript</p>
-                </div>
-                <div class="card">
+                    <h3 class="skillscard__title"><span class="slide-in leftAnime"><span class="slide-in_inner leftAnimeInner">Coding</span></span></h3>
+                    <p>HTML<br>CSS<br>Javascript</p>
+                </li>
+                <li>
                     <img src="./img/img/pc_excel_icon.svg" alt="エクセルアイコン">
-                </div>
-                <div class="card__content">
-                    <h3>Excel</h3>
-                    <p class="card__text">基本関数</p>
-                </div>
-                <div class="card">
+                    <h3 class="skillscard__title"><span class="slide-in leftAnime"><span class="slide-in_inner leftAnimeInner">Excel</span></span></h3>
+                    <p>基本関数</p>
+                </li>
+                <li>
                     <img src="./img/img/pc_cycle_icon.svg" alt="自転車アイコン">
+                    <h3 class="skillscard__title"><span class="slide-in leftAnime"><span class="slide-in_inner leftAnimeInner">Cycle</span></span></h3>
+                    <p>体力<br>忍耐力</p>
+                </li>
+            </ul>
+            <!-- wave右下り -->
+                <div class="wave turnRight">
+                    <canvas class="waveCanvas"></canvas>
                 </div>
-                <div class="card__content">
-                    <h3>Cycle</h3>
-                    <p class="card__text">体力<br>忍耐力</p>
-                </div>
-            </wrapper>
         </section>
 
         <section id="Works">
@@ -132,16 +144,22 @@
                     <p>架空webサイト</p>
                 </li>
             </ul>
-            <a class="more__btn" href="./works1.html">view more</a>
+            <a class="more__btn" href="./works1.html"><span>view more</span></a>
         </section>
-
+        <!-- wave左下り -->
+        <div class="wave turnLeft">
+            <canvas class="waveCanvas"></canvas>
+        </div>
         <section id="Contact">
             <h2>Contact</h2>
             <p>ご相談・ご依頼お待ちしております<br>
             無料ご相談・お見積もりいたします</p>
             <a class="contactmore__btn" href="./contact.html"><span>お問い合わせフォームはこちら</span></a>
         </section>
-
+        <!-- wave右下り -->
+        <div class="wave turnRight">
+            <canvas class="waveCanvas"></canvas>
+        </div>
     </div>
     </main>
 
@@ -149,7 +167,9 @@
         <p>©hakozaki_asami</p>
     </footer>
 
-    <script src="./script.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/jquery.matchHeight.js"></script>
+
 
 </body>
 </html>
