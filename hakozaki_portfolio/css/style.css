@@ -4,14 +4,33 @@ body {
 	width: 100%;
 	margin: 0 auto;
     color: #1b1464;
+	/* ▼ 背景グラデーション ▼ */
+	background:linear-gradient(45deg, #accbee,#e7f0fd,#f7e6eb,#e4edfd);/*グラデーションを定義*/
+	background-size: 1000% 1000%;/*サイズを大きくひきのばす*/
+	animation: bggradient 20s ease infinite;
+}
+.area {
+	overflow-x: hidden;
+}
+/* 背景グラデーション */
+@keyframes bggradient{
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 .container {
 	max-width: 1366px;
-    margin: 0;
+    margin: 0 auto;
 }
 h2 {
     text-align: center;
-    font-size: 48px;
+    font-size: 56px;
     color: #e9839f;
 	margin-top: 300px;
 }
@@ -44,6 +63,7 @@ img {
 }
 .more__btn span{
 	padding: 0 30px 0 0;
+	font-size: 20px;
 }
 .more__btn:hover {
 	background: #e9839ee4;
@@ -137,26 +157,7 @@ img {
 	align-items: center;
 	margin-top: 100px;
 }
-/* 背景グラデーション */
-body {
-	max-width: 100%;
-	height: 100%;
-    margin: 0;
-	background:linear-gradient(45deg, #accbee,#e7f0fd,#f7e6eb,#e4edfd);/*グラデーションを定義*/
-	background-size: 1000% 1000%;/*サイズを大きくひきのばす*/
-	animation: bggradient 20s ease infinite;
-}
-@keyframes bggradient{
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
+
 /* 背景ウェーブ */
 .wave{
     position: relative;
@@ -181,7 +182,6 @@ body {
 .turnLeft.turnRight.waveCanvas.waveCanvas{
 	top: 150px;
 }
-
 /* ヘッダー */
 .header__nav ul {
     display: flex;
@@ -203,8 +203,6 @@ body {
 .header__nav-sp {
     display: none;
 }
-
-
 /* ファーストビュー */
 .fv__text-left {
     position: relative;
@@ -229,7 +227,6 @@ body {
 h1 {
     text-align: center;
 }
-
 /* About */
 #About {
     text-align: center;
@@ -258,16 +255,15 @@ h1 {
 	animation-fill-mode:forwards;
 	position: absolute;
     top: 50%;
-
 }
 .about__img-left-top {
 	position: absolute;
 	bottom: 60%;
-	/* opacity: 0; */
+	opacity: 0;
 }
 .about__img-left-bottom {
 	position: absolute;
-	/* opacity: 0; */
+	opacity: 0;
 }
 .about__img-left li {
 	padding: 100px 0;
@@ -300,16 +296,77 @@ h1 {
 .about__img-right-top {
 	position: absolute;
 	bottom: 80%;
-	/* opacity: 0; */
+	opacity: 0;
 }
 .about__img-right-bottom {
 	margin-top: 180px;
-	/* opacity: 0; */
+	opacity: 0;
 }
+.fadeUp {
+	animation-name:fadeUpAnime;
+	animation-duration:0.5s;
+	animation-fill-mode:forwards;
+	opacity: 0;
+	}
+	@keyframes fadeUpAnime{
+        from {
+		opacity: 0;
+		transform: translateY(100px);
+        }
+        to {
+		opacity: 1;
+		transform: translateY(0);
+        }
+	}
 .about__textarea-main {
 	margin: 0 auto;
 	top: 10%;
 	left: 30%;
+}
+
+.about__img-right{
+	width: 200px;
+	aspect-ratio: 667/550;  /* 比率保持 */
+}
+.about__img-right img{
+	height: 132px;   /* 縦指定の自動トリミング */
+	object-fit: cover;
+}
+
+.about__img-container {
+	position: relative;
+	width: 100%;   /* 幅100%に対して縦もwidthに合わせた100% */
+	height: auto;
+	overflow: hidden;  /* 要素からはみ出た部分を非表示 */
+}
+
+.about__img {
+	position: absolute;
+	width: 30%;
+	height: 30%;
+	background-size: cover;   /* 比率保持で自動で要素全体に背景画像 */
+	background-repeat: no-repeat;  /* 余白の際の画像リピートなし */
+}
+/* sp版ではbackground-imageで表示(positionの設定だと画面幅に合わせてトリミング形式は不可) */
+.about__img-left-top {
+	top: 10%;
+	left: 10%;
+	background-image: url('/path/to/image1.png');
+}
+.about__img-left-bottom {
+	bottom: 10%;
+	left: 10%;
+	background-image: url('/path/to/image2.png');
+}
+.about__img-right-top {
+	top: -50%;
+	right: 10%;
+	background-image: url('/path/to/image3.png');
+}
+.about__img-right-bottom {
+	bottom: 10%;
+	right: 10%;
+	background-image: url('/path/to/image4.png');
 }
 /* About---サブページ */
 .about__profile {
@@ -325,18 +382,18 @@ h1 {
 }
 .about__img-profile {
 	width: 40%;
+	height: 40%;
 }
 .about__textarea-profile {
 	display: block;
 	margin: 0 0 0 40px;
 }
-
 /* Skills */
 #Skills img {
-	height: 100%;
+	height: 50%;
 }
 .design-icon {
-	width: 90%;
+	width: 80%;
 }
 .skillscard {
 	display: flex;
@@ -345,7 +402,11 @@ h1 {
 #Skills li {
 	text-align: center;
 }
+#Skills p {
+	font-size: 18px;
+}
 .skillscard__title {
+	font-size: 32px;
 	font-weight: 500;
 }
 /* Works---メインページ */
@@ -380,12 +441,13 @@ h1 {
 	flex-direction: column;
 }
 .works__list_sub-title {
-	width: 15%;
-	margin: 0 10%;
+	width: 20%;
+	margin: 0 15% 5%;
 	display: inline-block;
 	border-bottom: solid 2px #fff;
 	padding-bottom: 20px;
 	text-align: center;
+	font-size: 20px;
 }
 .works__list_sub-textdetail li {
 	display: flex;
@@ -467,7 +529,6 @@ h1 {
 	margin: 0 auto;
 	gap: 50px;
 }
-
 /* contact */
 #Contact {
     text-align: center;
@@ -475,6 +536,9 @@ h1 {
 #Contact p {
 	line-height: 2;
 	margin-top: 80px;
+}
+#Contact span {
+	font-size: 18px;
 }
 .contactmore__btn {
 	text-decoration: none;
@@ -631,13 +695,30 @@ to {
 }
 
 
-/* sp版 */
-@media screen and (max-width:767px) {
+/* ------sp版------ */
+
+/* メディアクエリを使って、画面幅が縮まるときに背景位置を調整 */
+/* 1200px → 768px → 450px */
+@media screen and (max-width: 1200px) {
+	.about__img-left-top,
+	.about__img-left-bottom,
+	.about__img-right-top,
+	.about__img-right-bottom {
+		background-position: center;  /* 背景画像位置を真ん中 */
+	}
+}
+@media screen and (max-width:768px) {
     .container {
         width: 100%;
         margin: 0 auto;
 		text-align: center;
     }
+	h1 {
+		font-size: 20px;
+	}
+	h2 {
+		margin-top: 200px;
+	}
 	.article__title {
 		margin-left: 8%;
 		padding: 10%;
@@ -649,10 +730,31 @@ to {
 	.fv__text-left {
 		margin: 0 0 80px 0;
 		padding-top: 20%;
-		font-size: 90px;
+		font-size: 50px;
 	}
 	.fv__text-right {
-		font-size: 90px;
+		font-size: 50px;
+	}
+	#About .name {
+		font-size: 20px;
+		font-weight: normal;
+	}
+	#About p {
+		font-size: 13px;
+	}
+	#About{
+		background-image: url(../img/img/about-bg.png);
+		background-size: cover;  /* 比率保持で自動で要素全体に背景画像 */
+		background-position: center;  /* 背景画像位置を真ん中 */
+		background-repeat: no-repeat;  /* 画像リピートなし */
+		padding: 200px 0;
+	}
+	#About h2{
+		margin-top: 130px;
+	}
+	.about__img-left,
+	.about__img-right{
+		display: none;  /* pcの時のバラバラに置いていた画像の表示を消す */
 	}
 	.works__list-main {
 		display: block;
@@ -714,7 +816,7 @@ to {
 		margin-top: 50px;
 	}
 	.design-icon {
-		width: 40%;
+		width: 30%;
 	}
 	.c-form__item {
 		flex-wrap: nowrap;
@@ -745,7 +847,7 @@ to {
     .hamburger {
         display: block;  
 		position: fixed;     /* ハンバーガーメニューを表示する */
-        width: 30px;          /* 3本線の枠 */
+        width: 70px;          /* 3本線の枠 */
         height: 30px;         /* 3本線の枠 */
         right: 10px;          /* 左にいたものを右に移動 */
         top: 10px;
@@ -814,5 +916,10 @@ to {
         gap: 40px; 
 		padding: 0;                  /* 文字間調整 */
     }
+}
 
+@media screen and (max-width: 450px) {
+	#About{
+		padding: 50px 0;
+	}
 }

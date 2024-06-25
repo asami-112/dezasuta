@@ -10,15 +10,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="./js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="./js/jquery.matchHeight.js"></script>
+    <script src="./js/script.js"></script>
     <style>
         @import url("https://use.typekit.net/bgz0pla.css");
     </style>
 
 </head>
 <body>
+    <div class="area">
     <header id="header">
         <div class="header__inner">
             <nav class="header__nav">
@@ -55,11 +56,10 @@
             </div>
             <p class="fv__text-right">Good design</p>
         </section>
-
         <section id="About">
             <h2>About</h2>
             <div class="about__img-left">
-                <ul>
+                <ul class="randomScroll">
                     <li class="about__img-left-top"><img src="./img/img/tsukuba@2x.png" alt="筑波山"></li>
                     <li class="about__img-left-bottom"><img src="./img/img/nikko_1@2x.png" alt="日光男体山"></li>
                 </ul>
@@ -81,7 +81,7 @@
                 <canvas class="waveCanvas"></canvas>
             </div>
             <div class="about__img-right">
-                <ul>
+                <ul class="randomScroll">
                     <li class="about__img-right-top"><img src="./img/img/arashiyama@2x.png" alt="嵐山"></li>
                     <li class="about__img-right-bottom"><img src="./img/img/nikko_2@2x.png" alt="中禅寺湖"></li>
                 </ul>
@@ -150,7 +150,7 @@
         <div class="wave turnLeft">
             <canvas class="waveCanvas"></canvas>
         </div>
-        <section id="Contact">
+        <section id="Contact" class="area">
             <h2>Contact</h2>
             <p>ご相談・ご依頼お待ちしております<br>
             無料ご相談・お見積もりいたします</p>
@@ -164,11 +164,9 @@
     </main>
 
     <footer id="footer">
-        <p>©hakozaki_asami</p>
+        <p>&copy;hakozaki_asami</p>
     </footer>
-
-    <script src="./js/script.js"></script>
-    <script src="./js/jquery.matchHeight.js"></script>
+</div>
 
 
 </body>
