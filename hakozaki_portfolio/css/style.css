@@ -6,22 +6,22 @@ body {
     color: #1b1464;
 	/* ▼ 背景グラデーション ▼ */
 	background:linear-gradient(45deg, #accbee,#e7f0fd,#f7e6eb,#e4edfd);/*グラデーションを定義*/
-	background-size: 1000% 1000%;/*サイズを大きくひきのばす*/
+	background-size: 120% 1000%;/*サイズを大きくひきのばす*/
 	animation: bggradient 20s ease infinite;
 }
 .area {
-	overflow-x: hidden;
+	overflow: hidden;
 }
 /* 背景グラデーション */
 @keyframes bggradient{
 	0% {
-		background-position: 0% 50%;
+		background-position: 0% 100%;
 	}
 	50% {
 		background-position: 100% 50%;
 	}
 	100% {
-		background-position: 0% 50%;
+		background-position: 0% 100%;
 	}
 }
 .container {
@@ -176,8 +176,8 @@ img {
 .waveCanvas{
     position: absolute;
     bottom: 0;
-    left: -3%;
-    width: 100%;
+    left: -30%;
+    width: 200%;
 }
 .turnLeft.turnRight.waveCanvas.waveCanvas{
 	top: 150px;
@@ -280,6 +280,7 @@ h1 {
 	animation-name:blurAnime;  /* ▼ほわっとさせるアニメーション */
 	animation-duration:4s;
 	animation-fill-mode:forwards;
+	aspect-ratio: 667/550;  /* 比率保持 */
 }
 @keyframes blurAnime {
 	from {
@@ -302,6 +303,9 @@ h1 {
 	margin-top: 180px;
 	opacity: 0;
 }
+.about__img-right img{ /* 縦指定の自動トリミング */
+	object-fit: cover;
+}
 .fadeUp {
 	animation-name:fadeUpAnime;
 	animation-duration:0.5s;
@@ -323,23 +327,12 @@ h1 {
 	top: 10%;
 	left: 30%;
 }
-
-.about__img-right{
-	width: 200px;
-	aspect-ratio: 667/550;  /* 比率保持 */
-}
-.about__img-right img{
-	height: 132px;   /* 縦指定の自動トリミング */
-	object-fit: cover;
-}
-
 .about__img-container {
 	position: relative;
 	width: 100%;   /* 幅100%に対して縦もwidthに合わせた100% */
 	height: auto;
 	overflow: hidden;  /* 要素からはみ出た部分を非表示 */
 }
-
 .about__img {
 	position: absolute;
 	width: 30%;
@@ -393,7 +386,7 @@ h1 {
 	height: 50%;
 }
 .design-icon {
-	width: 80%;
+	width: 70%;
 }
 .skillscard {
 	display: flex;
@@ -637,24 +630,19 @@ textarea.c-form__input {
 	color: #e9839f;
 	background-color: transparent;
 }
-
 /* サンクスページ */
 #thanks__text {
 	text-align: center;
 	margin: 300px 0 170px 0;
 }
-
 /*========= 流れるテキスト ===============*/
-
-/*全共通*/
-
+/*共通*/
 .slide-in {
 	overflow: hidden;
     display: inline-block;
 }
 .slide-in_inner {
 	display: inline-block;
-
 }
 /*左右のアニメーション*/
 .leftAnime{
@@ -682,7 +670,6 @@ to {
 	animation-fill-mode:forwards;
     opacity: 0;
 }
-
 @keyframes slideTextX-100 {
 from {
 	transform: translateX(100%);/*要素を右の枠外に移動*/
@@ -731,6 +718,7 @@ to {
 		margin: 0 0 80px 0;
 		padding-top: 20%;
 		font-size: 50px;
+		text-align: left;
 	}
 	.fv__text-right {
 		font-size: 50px;
@@ -816,7 +804,13 @@ to {
 		margin-top: 50px;
 	}
 	.design-icon {
-		width: 30%;
+		width: 22%;
+	}
+	#Contact {
+		padding: 0 16px;
+	}
+	.contactmore__btn {
+		padding: 20px;
 	}
 	.c-form__item {
 		flex-wrap: nowrap;
@@ -921,5 +915,8 @@ to {
 @media screen and (max-width: 450px) {
 	#About{
 		padding: 50px 0;
+	}
+	.design-icon {
+		width: 40%;
 	}
 }

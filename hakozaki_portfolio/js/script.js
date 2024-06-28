@@ -182,3 +182,4 @@ function slideAnime(){
 	$(window).on('load', function(){
 		slideAnime();/* アニメーション用の関数を呼ぶ*/
 	});// ここまで画面が読み込まれたらすぐに動かしたい場合の記述
+
