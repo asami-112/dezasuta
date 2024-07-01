@@ -105,6 +105,8 @@ function drawSine(canvas, t, zoom, delay) {
         context.lineTo(i, unit * y + xAxis);
     }
 }
+
+
 // 動きのきっかけの起点となるアニメーションの名前を定義
 function moveAnimation(){
     //スクロールしたらランダムに出現	

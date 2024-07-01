@@ -226,6 +226,7 @@ img {
 }
 h1 {
     text-align: center;
+	line-height: 60px;
 }
 /* About */
 #About {
@@ -326,6 +327,7 @@ h1 {
 	margin: 0 auto;
 	top: 10%;
 	left: 30%;
+	line-height: 30px;
 }
 .about__img-container {
 	position: relative;
@@ -380,6 +382,7 @@ h1 {
 .about__textarea-profile {
 	display: block;
 	margin: 0 0 0 40px;
+	line-height: 30px;
 }
 /* Skills */
 #Skills img {
@@ -397,6 +400,7 @@ h1 {
 }
 #Skills p {
 	font-size: 18px;
+	line-height: 30px;
 }
 .skillscard__title {
 	font-size: 32px;
@@ -450,13 +454,15 @@ h1 {
 	width: 40%;
 	display: inline-block;
 	border-bottom: solid 2px #fff;
-	padding: 0 25px 35px 25px
+	padding: 0 25px 35px 25px;
+	line-height: 30px;
 }
 .works__list_sub-texttitle {
 	width: 30%;
 	white-space: nowrap;
 	display: inline-block;
 	border-bottom: solid 2px #fff;
+	font-weight: bolder;
 }
 .works__main_img-hb {
 	text-align: center;
@@ -527,7 +533,7 @@ h1 {
     text-align: center;
 }
 #Contact p {
-	line-height: 2;
+	line-height: 35px;
 	margin-top: 80px;
 }
 #Contact span {
@@ -634,6 +640,11 @@ textarea.c-form__input {
 #thanks__text {
 	text-align: center;
 	margin: 300px 0 170px 0;
+	line-height: 30px;
+}
+.thanks__text-title {
+	font-size: 50px;
+	color: #e9839f;
 }
 /*========= 流れるテキスト ===============*/
 /*共通*/
@@ -728,7 +739,7 @@ to {
 		font-weight: normal;
 	}
 	#About p {
-		font-size: 13px;
+		line-height: 30px;
 	}
 	#About{
 		background-image: url(../img/img/about-bg.png);
@@ -746,6 +757,9 @@ to {
 	}
 	.works__list-main {
 		display: block;
+	}
+	.works__list-main p {
+		font-size: 18px;
 	}
 	.works__list-main-bottom {
 		margin-top: 80px;
