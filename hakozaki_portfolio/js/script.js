@@ -1,3 +1,40 @@
+// ハンバーガーメニュー
+$(function(){
+    $(".hamburger").on("click", function(){   //ハンバーガーをクリックしたら、
+        $(".hamburger").toggleClass("open");  //ハンバーガーメニューが開く
+        $(".header__nav-sp").fadeToggle();    //sp版のnavを表示させる。
+    });
+});
+
+
+//テキストのカウントアップの設定
+var bar = new ProgressBar.Line(splash_text, {//id名を指定
+	strokeWidth: 0,//進捗ゲージの太さ
+	duration: 1000,//時間指定(1000＝1秒)
+	trailWidth: 0,//線の太さ
+	text: {//テキストの形状を直接指定	
+		style: {//天地中央に配置
+			position:'absolute',
+			left:'50%',
+			top:'50%',
+			padding:'0',
+			margin:'0',
+			transform:'translate(-50%,-50%)',
+			'font-size':'1.2rem',
+			color:'#f694ae',
+		},
+		autoStyleContainer: false //自動付与のスタイルを切る
+	},
+	step: function(state, bar) {
+		bar.setText(Math.round(bar.value() * 100) + ' %'); //テキストの数値
+	}
+});
+
+//アニメーションスタート
+bar.animate(1.0, function () {//バーを描画する割合を指定します 1.0 なら100%まで描画します
+	$("#splash").delay(500).fadeOut(800);//アニメーションが終わったら#splashエリアをフェードアウト
+});  
+
 var unit = 100,
     canvasList, // キャンバスの配列
     info = {}, // 全キャンバス共通の描画情報
@@ -106,6 +143,64 @@ function drawSine(canvas, t, zoom, delay) {
     }
 }
 
+//fv_アニメーション
+// blurTriggerにblurというクラス名を付ける定義
+function BlurTextAnimeControl() {
+	$('.blurTrigger').each(function(){ //blurTriggerというクラス名が
+		var elemPos = $(this).offset().top-50;//要素より、50px上の
+		var scroll = $(window).scrollTop();
+		var windowHeight = $(window).height();
+		if (scroll >= elemPos - windowHeight){
+		$(this).addClass('blur');// 画面内に入ったらblurというクラス名を追記
+		}else{
+		$(this).removeClass('blur');// 画面外に出たらblurというクラス名を外す
+		}
+		});
+}
+// 画面が読み込まれたらすぐに動かしたい場合の記述
+$(window).on('load', function () {
+	BlurTextAnimeControl();/* アニメーション用の関数を呼ぶ*/
+});// ここまで画面が読み込まれたらすぐに動かしたい場合の記述
+
+
+// eachTextAnimeにappeartextというクラス名を付ける定義
+function EachTextAnimeControl() {
+    $('.eachTextAnime').each(function () {
+        var elemPos = $(this).offset().top - 50;
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        if (scroll >= elemPos - windowHeight) {
+        $(this).addClass("appeartext");
+        } else {
+        $(this).removeClass("appeartext");
+        }
+    });
+    }
+  // 画面が読み込まれたらすぐに動かしたい場合の記述
+$(window).on('load', function () {
+    //spanタグを追加する
+    var element = $(".eachTextAnime");
+    element.each(function () {
+        var text = $(this).text();
+        var textbox = "";
+        text.split('').forEach(function (t, i) {
+            if (t !== " ") {
+            if (i < 10) {
+            textbox += '<span style="animation-delay:.' + i + 's;">' + t + '</span>';
+            } else {
+            var n = i / 10;
+            textbox += '<span style="animation-delay:' + n + 's;">' + t + '</span>';
+            }
+        } else {
+            textbox += t;
+        }
+        });
+        $(this).html(textbox);
+    });
+
+    EachTextAnimeControl();/* アニメーション用の関数を呼ぶ*/
+    });// ここまで画面が読み込まれたらすぐに動かしたい場合の記述
+
 
 // 動きのきっかけの起点となるアニメーションの名前を定義
 function moveAnimation(){
@@ -145,14 +240,6 @@ function moveAnimation(){
 // アニメーションを初期化
 init();
 
-
-// ハンバーガーメニュー
-$(function(){
-    $(".hamburger").on("click", function(){   //ハンバーガーをクリックしたら、
-        $(".hamburger").toggleClass("open");  //ハンバーガーメニューが開く
-        $(".header__nav-sp").fadeToggle();    //sp版のnavを表示させる。
-    });
-});
 
 function slideAnime(){
 	//====左に動くアニメーションここから===

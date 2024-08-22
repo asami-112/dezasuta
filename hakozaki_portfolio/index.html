@@ -15,16 +15,19 @@
     </style>
 </head>
 <body>
+    <div id="splash">
+        <div id="splash_text"></div>
+        <!--/splash--></div>
     <div class="area">
     <header id="header">
         <div class="header__inner">
             <nav class="header__nav">
-                <ul>
-                    <li><a href="./about.html">About</a></li>
-                    <li><a href="./index.html#Skills">Skills</a></li>
+                <ul class="gnavi">
+                    <li class="current"><a href="./about.html"><span>About</span><span>About</span></a></li>
+                    <li class="current"><a href="./index.html#Skills"><span>Skills</span><span>Skills</span></a></li>
                     <li><a href="#"><img img class="logo__img" src="./img/img/pc_logo@2x.png" alt="ロゴ"></a></li>
-                    <li><a href="./works1.html">Works</a></li>
-                    <li><a href="./contact.html">Contact</a></li>
+                    <li class="current"><a href="./works1.html"><span>Works</span><span>Works</span></a></li>
+                    <li class="current"><a href="./contact.html"><span>Contact</span><span>Contact</span></a></li>
                 </ul>
             </nav>
         </div>
@@ -44,13 +47,13 @@
     <main>
     <div class="container">
         <section id="fv">
-            <p class="fv__text-left">Connection of heart</p>
-            <h1>つながりを大切に<br>より良いカタチにしていくお手伝い</h1>
+            <p class="fv__text-left"><span class="blurTrigger blur">connection of heart</span></p>
+            <h1><p class="eachTextAnime">つながりを大切に。良いデザインを</p></h1>
             <!-- wave右下り -->
             <div class="wave turnRight">
                 <canvas class="waveCanvas"></canvas>
             </div>
-            <p class="fv__text-right">Good design</p>
+            <p class="fv__text-right"><span class="blurTrigger blur">good design</span></p>
         </section>
         <section id="About">
             <h2>About</h2>
@@ -161,9 +164,12 @@
     </footer>
 </div>
 
+<script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.js"></script>
+<script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="./js/jquery.matchHeight.js"></script>
 <script src="./js/script.js"></script>
+
 
 </body>
 </html>
